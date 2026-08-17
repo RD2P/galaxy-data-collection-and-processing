@@ -1,0 +1,613 @@
+[
+    {
+        "model_class": "Tool",
+        "id": "toolshed.g2.bx.psu.edu/repos/iuc/ncbi_acc_download/ncbi_acc_download/0.2.8+galaxy0",
+        "name": "NCBI Accession Download",
+        "version": "0.2.8+galaxy0",
+        "description": "Download sequences from GenBank/RefSeq by accession through the NCBI ENTREZ API",
+        "labels": [],
+        "icon": null,
+        "edam_operations": [],
+        "edam_topics": [],
+        "hidden": "",
+        "is_workflow_compatible": true,
+        "xrefs": [
+            {
+                "value": "ncbi_resources",
+                "type": "bio.tools"
+            }
+        ],
+        "versions": [
+            "0.2.5+galaxy0",
+            "0.2.7+galaxy0",
+            "0.2.8+galaxy0"
+        ],
+        "hidden_versions": [],
+        "tool_shed_repository": {
+            "name": "ncbi_acc_download",
+            "owner": "iuc",
+            "changeset_revision": "e063168e0a81",
+            "tool_shed": "toolshed.g2.bx.psu.edu"
+        },
+        "inputs": [
+            {
+                "model_class": "Conditional",
+                "name": "query_source",
+                "type": "conditional",
+                "cases": [
+                    {
+                        "model_class": "ConditionalWhen",
+                        "value": "accession_file",
+                        "inputs": [
+                            {
+                                "model_class": "DataToolParameter",
+                                "name": "accession_file",
+                                "argument": null,
+                                "type": "data",
+                                "label": "Accession File",
+                                "help": "",
+                                "help_format": "html",
+                                "refresh_on_change": true,
+                                "optional": false,
+                                "hidden": false,
+                                "is_dynamic": false,
+                                "value": null,
+                                "extensions": [
+                                    "txt",
+                                    "tabular"
+                                ],
+                                "edam": {
+                                    "edam_formats": [
+                                        "format_2330",
+                                        "format_3475"
+                                    ],
+                                    "edam_data": [
+                                        "data_0006",
+                                        "data_0006"
+                                    ]
+                                },
+                                "multiple": false,
+                                "tag": null,
+                                "options": {
+                                    "dce": [],
+                                    "ldda": [],
+                                    "hda": [],
+                                    "hdca": []
+                                },
+                                "pinned": {
+                                    "dce": [],
+                                    "ldda": [],
+                                    "hda": [],
+                                    "hdca": []
+                                },
+                                "options_meta": {}
+                            }
+                        ]
+                    },
+                    {
+                        "model_class": "ConditionalWhen",
+                        "value": "accession_list",
+                        "inputs": [
+                            {
+                                "model_class": "TextToolParameter",
+                                "name": "accession_list",
+                                "argument": null,
+                                "type": "text",
+                                "label": "ID List",
+                                "help": "Newline/Comma separated list of IDs",
+                                "help_format": "html",
+                                "refresh_on_change": false,
+                                "optional": false,
+                                "hidden": false,
+                                "is_dynamic": false,
+                                "value": null,
+                                "area": true,
+                                "datalist": []
+                            }
+                        ]
+                    }
+                ],
+                "test_param": {
+                    "model_class": "SelectToolParameter",
+                    "name": "select",
+                    "argument": null,
+                    "type": "select",
+                    "label": "Select source for IDs",
+                    "help": "",
+                    "help_format": "html",
+                    "refresh_on_change": true,
+                    "optional": false,
+                    "hidden": false,
+                    "is_dynamic": false,
+                    "value": "accession_file",
+                    "options": [
+                        [
+                            "File containing Accessions (one per line)",
+                            "accession_file",
+                            false
+                        ],
+                        [
+                            "Direct Entry",
+                            "accession_list",
+                            false
+                        ]
+                    ],
+                    "display": null,
+                    "multiple": false,
+                    "textable": false
+                }
+            },
+            {
+                "model_class": "Conditional",
+                "name": "molecule",
+                "type": "conditional",
+                "cases": [
+                    {
+                        "model_class": "ConditionalWhen",
+                        "value": "nucleotide",
+                        "inputs": [
+                            {
+                                "model_class": "SelectToolParameter",
+                                "name": "format",
+                                "argument": null,
+                                "type": "select",
+                                "label": "File Format",
+                                "help": "",
+                                "help_format": "html",
+                                "refresh_on_change": false,
+                                "optional": false,
+                                "hidden": false,
+                                "is_dynamic": false,
+                                "value": "fasta",
+                                "options": [
+                                    [
+                                        "FASTA",
+                                        "fasta",
+                                        true
+                                    ],
+                                    [
+                                        "GenBank",
+                                        "genbank",
+                                        false
+                                    ],
+                                    [
+                                        "Feature Table",
+                                        "featuretable",
+                                        false
+                                    ],
+                                    [
+                                        "GFF3",
+                                        "gff3",
+                                        false
+                                    ]
+                                ],
+                                "display": null,
+                                "multiple": false,
+                                "textable": false
+                            }
+                        ]
+                    },
+                    {
+                        "model_class": "ConditionalWhen",
+                        "value": "protein",
+                        "inputs": [
+                            {
+                                "model_class": "SelectToolParameter",
+                                "name": "format",
+                                "argument": null,
+                                "type": "select",
+                                "label": "File Format",
+                                "help": "",
+                                "help_format": "html",
+                                "refresh_on_change": false,
+                                "optional": false,
+                                "hidden": false,
+                                "is_dynamic": false,
+                                "value": "fasta",
+                                "options": [
+                                    [
+                                        "FASTA",
+                                        "fasta",
+                                        true
+                                    ]
+                                ],
+                                "display": null,
+                                "multiple": false,
+                                "textable": false
+                            }
+                        ]
+                    }
+                ],
+                "test_param": {
+                    "model_class": "SelectToolParameter",
+                    "name": "select",
+                    "argument": null,
+                    "type": "select",
+                    "label": "Molecule Type",
+                    "help": "",
+                    "help_format": "html",
+                    "refresh_on_change": true,
+                    "optional": false,
+                    "hidden": false,
+                    "is_dynamic": false,
+                    "value": "nucleotide",
+                    "options": [
+                        [
+                            "Nucleotide",
+                            "nucleotide",
+                            true
+                        ],
+                        [
+                            "Protein",
+                            "protein",
+                            false
+                        ]
+                    ],
+                    "display": null,
+                    "multiple": false,
+                    "textable": false
+                }
+            },
+            {
+                "model_class": "TextToolParameter",
+                "name": "range",
+                "argument": "--range",
+                "type": "text",
+                "label": "Range",
+                "help": "Region to subset accession. Start and end position separated by ':', '..', or '.'. Only for single accession",
+                "help_format": "html",
+                "refresh_on_change": false,
+                "optional": true,
+                "hidden": false,
+                "is_dynamic": false,
+                "value": null,
+                "area": false,
+                "datalist": []
+            },
+            {
+                "model_class": "SelectToolParameter",
+                "name": "ignore_failed",
+                "argument": null,
+                "type": "select",
+                "label": "How to handle download failures",
+                "help": "",
+                "help_format": "html",
+                "refresh_on_change": false,
+                "optional": false,
+                "hidden": false,
+                "is_dynamic": false,
+                "value": "0",
+                "options": [
+                    [
+                        "Abort with error on first failure",
+                        "0",
+                        false
+                    ],
+                    [
+                        "Add accession to failed list and continue",
+                        "1",
+                        false
+                    ]
+                ],
+                "display": "radio",
+                "multiple": false,
+                "textable": false
+            }
+        ],
+        "outputs": [
+            {
+                "model_class": "ToolOutputCollection",
+                "name": "output",
+                "format": null,
+                "label": "${tool.name} on ${on_string}: Downloaded Files",
+                "hidden": false,
+                "output_type": "collection",
+                "default_format": "data",
+                "default_format_source": null,
+                "default_metadata_source": null,
+                "inherit_format": false,
+                "inherit_metadata": false,
+                "structure": {
+                    "collection_type": "list",
+                    "collection_type_source": null,
+                    "collection_type_from_rules": null,
+                    "structured_like": null,
+                    "discover_datasets": [
+                        {
+                            "discover_via": "pattern",
+                            "format": "fasta",
+                            "visible": false,
+                            "assign_primary_output": false,
+                            "directory": "outdir",
+                            "recurse": false,
+                            "match_relative_path": false,
+                            "sort_key": "filename",
+                            "sort_comp": "lexical",
+                            "sort_reverse": false,
+                            "pattern": "(?P<name>.+)\\.fa$"
+                        },
+                        {
+                            "discover_via": "pattern",
+                            "format": "genbank",
+                            "visible": false,
+                            "assign_primary_output": false,
+                            "directory": "outdir",
+                            "recurse": false,
+                            "match_relative_path": false,
+                            "sort_key": "filename",
+                            "sort_comp": "lexical",
+                            "sort_reverse": false,
+                            "pattern": "(?P<name>.+)\\.gbk$"
+                        },
+                        {
+                            "discover_via": "pattern",
+                            "format": "gff",
+                            "visible": false,
+                            "assign_primary_output": false,
+                            "directory": "outdir",
+                            "recurse": false,
+                            "match_relative_path": false,
+                            "sort_key": "filename",
+                            "sort_comp": "lexical",
+                            "sort_reverse": false,
+                            "pattern": "(?P<name>.+)\\.gff$"
+                        },
+                        {
+                            "discover_via": "pattern",
+                            "format": "txt",
+                            "visible": false,
+                            "assign_primary_output": false,
+                            "directory": "outdir",
+                            "recurse": false,
+                            "match_relative_path": false,
+                            "sort_key": "filename",
+                            "sort_comp": "lexical",
+                            "sort_reverse": false,
+                            "pattern": "(?P<name>.+)\\.ft$"
+                        }
+                    ]
+                }
+            },
+            {
+                "model_class": "ToolOutput",
+                "name": "error_log",
+                "format": "txt",
+                "label": "${tool.name} on ${on_string}: Log",
+                "hidden": false,
+                "output_type": "data",
+                "format_source": null,
+                "default_identifier_source": "None",
+                "metadata_source": null,
+                "parent": null,
+                "count": 1,
+                "from_work_dir": "error.log",
+                "edam_format": "format_2330",
+                "edam_data": "data_0006",
+                "discover_datasets": [
+                    {
+                        "discover_via": "pattern",
+                        "format": null,
+                        "visible": false,
+                        "assign_primary_output": false,
+                        "directory": null,
+                        "recurse": false,
+                        "match_relative_path": false,
+                        "sort_key": "filename",
+                        "sort_comp": "lexical",
+                        "sort_reverse": false,
+                        "pattern": "primary_DATASET_ID_(?P<designation>[^_]+)_(?P<visible>[^_]+)_(?P<ext>[^_]+)(_(?P<dbkey>[^_]+))?"
+                    }
+                ]
+            },
+            {
+                "model_class": "ToolOutput",
+                "name": "failed_accessions",
+                "format": "txt",
+                "label": "${tool.name} on ${on_string}: Failed accessions",
+                "hidden": false,
+                "output_type": "data",
+                "format_source": null,
+                "default_identifier_source": "None",
+                "metadata_source": null,
+                "parent": null,
+                "count": 1,
+                "from_work_dir": "failed.txt",
+                "edam_format": "format_2330",
+                "edam_data": "data_0006",
+                "discover_datasets": [
+                    {
+                        "discover_via": "pattern",
+                        "format": null,
+                        "visible": false,
+                        "assign_primary_output": false,
+                        "directory": null,
+                        "recurse": false,
+                        "match_relative_path": false,
+                        "sort_key": "filename",
+                        "sort_comp": "lexical",
+                        "sort_reverse": false,
+                        "pattern": "primary_DATASET_ID_(?P<designation>[^_]+)_(?P<visible>[^_]+)_(?P<ext>[^_]+)(_(?P<dbkey>[^_]+))?"
+                    }
+                ]
+            }
+        ],
+        "has_parameters": true,
+        "panel_section_id": "get_data",
+        "panel_section_name": "Get Data",
+        "form_style": "regular"
+    },
+    {
+        "model_class": "Tool",
+        "id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/9.5+galaxy3",
+        "name": "Concatenate datasets",
+        "version": "9.5+galaxy3",
+        "description": "tail-to-head (cat)",
+        "labels": [],
+        "icon": null,
+        "edam_operations": [],
+        "edam_topics": [],
+        "hidden": "",
+        "is_workflow_compatible": true,
+        "xrefs": [],
+        "versions": [
+            "0.1.0",
+            "0.1.1",
+            "9.3+galaxy1",
+            "9.5+galaxy0",
+            "9.5+galaxy2",
+            "9.5+galaxy3"
+        ],
+        "hidden_versions": [],
+        "tool_shed_repository": {
+            "name": "text_processing",
+            "owner": "bgruening",
+            "changeset_revision": "ab83aa685821",
+            "tool_shed": "toolshed.g2.bx.psu.edu"
+        },
+        "inputs": [
+            {
+                "model_class": "DataToolParameter",
+                "name": "inputs",
+                "argument": null,
+                "type": "data",
+                "label": "Datasets to concatenate",
+                "help": "",
+                "help_format": "html",
+                "refresh_on_change": true,
+                "optional": false,
+                "hidden": false,
+                "is_dynamic": false,
+                "value": null,
+                "extensions": [
+                    "txt",
+                    "fastq.gz",
+                    "fasta.gz",
+                    "genbank.gz",
+                    "tabular.gz"
+                ],
+                "edam": {
+                    "edam_formats": [
+                        "format_2330",
+                        "format_1930",
+                        "format_1929",
+                        "format_1936",
+                        "format_3475"
+                    ],
+                    "edam_data": [
+                        "data_0006",
+                        "data_2044",
+                        "data_2044",
+                        "data_0849",
+                        "data_0006"
+                    ]
+                },
+                "multiple": true,
+                "min": null,
+                "max": null,
+                "tag": null,
+                "options": {
+                    "dce": [],
+                    "ldda": [],
+                    "hda": [],
+                    "hdca": []
+                },
+                "pinned": {
+                    "dce": [],
+                    "ldda": [],
+                    "hda": [],
+                    "hdca": []
+                },
+                "options_meta": {}
+            },
+            {
+                "model_class": "Repeat",
+                "name": "queries",
+                "type": "repeat",
+                "title": "Dataset",
+                "help": null,
+                "default": 0,
+                "min": 0,
+                "max": null,
+                "inputs": [
+                    {
+                        "model_class": "DataToolParameter",
+                        "name": "inputs2",
+                        "argument": null,
+                        "type": "data",
+                        "label": "Select",
+                        "help": "",
+                        "help_format": "html",
+                        "refresh_on_change": true,
+                        "optional": false,
+                        "hidden": false,
+                        "is_dynamic": false,
+                        "value": null,
+                        "extensions": [
+                            "txt",
+                            "fastq.gz",
+                            "fasta.gz",
+                            "genbank.gz",
+                            "tabular.gz"
+                        ],
+                        "edam": {
+                            "edam_formats": [
+                                "format_2330",
+                                "format_1930",
+                                "format_1929",
+                                "format_1936",
+                                "format_3475"
+                            ],
+                            "edam_data": [
+                                "data_0006",
+                                "data_2044",
+                                "data_2044",
+                                "data_0849",
+                                "data_0006"
+                            ]
+                        },
+                        "multiple": true,
+                        "min": null,
+                        "max": null,
+                        "tag": null,
+                        "options": {
+                            "dce": [],
+                            "ldda": [],
+                            "hda": [],
+                            "hdca": []
+                        },
+                        "pinned": {
+                            "dce": [],
+                            "ldda": [],
+                            "hda": [],
+                            "hdca": []
+                        },
+                        "options_meta": {}
+                    }
+                ]
+            }
+        ],
+        "outputs": [
+            {
+                "model_class": "ToolOutput",
+                "name": "out_file1",
+                "format": "data",
+                "label": null,
+                "hidden": false,
+                "output_type": "data",
+                "format_source": "inputs",
+                "default_identifier_source": "None",
+                "metadata_source": "inputs",
+                "parent": null,
+                "count": 1,
+                "from_work_dir": null,
+                "edam_format": "format_1915",
+                "edam_data": "data_0006",
+                "discover_datasets": []
+            }
+        ],
+        "has_parameters": true,
+        "panel_section_id": "text_manipulation",
+        "panel_section_name": "Text Manipulation",
+        "form_style": "regular"
+    }
+]

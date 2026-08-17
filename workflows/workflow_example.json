@@ -1,0 +1,622 @@
+{
+    "data": {
+        "id": "2179",
+        "type": "workflows",
+        "attributes": {
+            "discussion_links": [],
+            "title": "histological-staining-area-quantification/histological-staining-area-quantification",
+            "license": "CC-BY-4.0",
+            "description": "This workflow performs colour deconvolution and automated thresholding to quantify stained area in brightfield histological images (MT, IHC). It accepts whole slides or pre-cropped ROIs.",
+            "latest_version": 2,
+            "tags": [],
+            "versions": [
+                {
+                    "version": 1,
+                    "revision_comments": "Updated to v0.1",
+                    "url": "https://workflowhub.eu/workflows/2179?version=1",
+                    "remote": "https://github.com/iwc-workflows/histological-staining-area-quantification.git",
+                    "commit": "9b33a0ce571db6afa4de31f17693b936762c567a",
+                    "ref": "refs/tags/v0.1",
+                    "tree": "/workflows/2179/git/1/tree",
+                    "doi": null
+                },
+                {
+                    "version": 2,
+                    "revision_comments": "Updated to v0.1.1",
+                    "url": "https://workflowhub.eu/workflows/2179?version=2",
+                    "remote": "https://github.com/iwc-workflows/histological-staining-area-quantification.git",
+                    "commit": "add030cf0be7a84cec8a7fe192b50c4468ba0214",
+                    "ref": "refs/tags/v0.1.1",
+                    "tree": "/workflows/2179/git/2/tree",
+                    "doi": null
+                }
+            ],
+            "version": 2,
+            "revision_comments": "Updated to v0.1.1",
+            "created_at": "2026-05-29T02:01:53.000Z",
+            "updated_at": "2026-06-01T01:02:26.000Z",
+            "doi": null,
+            "content_blobs": [],
+            "creators": [
+                {
+                    "profile": null,
+                    "family_name": "Chiang Jurado",
+                    "given_name": "Diana",
+                    "affiliation": null,
+                    "orcid": null
+                }
+            ],
+            "other_creators": null,
+            "workflow_class": {
+                "title": "Galaxy",
+                "key": "galaxy",
+                "description": null
+            },
+            "operation_annotations": [],
+            "topic_annotations": [],
+            "internals": {
+                "inputs": [
+                    {
+                        "id": "ROI image for staining analysis",
+                        "name": "ROI image for staining analysis",
+                        "description": "Brightfield histological image (whole slide or pre-cropped ROI) for staining quantification. Compatible stainings include Masson's Trichrome and IHC. Accepted format: TIFF.",
+                        "type": [
+                            {
+                                "type": "File[]"
+                            }
+                        ],
+                        "default_value": null
+                    }
+                ],
+                "outputs": [
+                    {
+                        "id": "Deconvolved Image",
+                        "name": "Deconvolved Image",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Color Deconvolution"
+                        ]
+                    },
+                    {
+                        "id": "Collection: Individual Deconvolved Channels",
+                        "name": "Collection: Individual Deconvolved Channels",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Split Image Channels for Staining Detection"
+                        ]
+                    },
+                    {
+                        "id": "Selected Stain Channel",
+                        "name": "Selected Stain Channel",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Collection: Extract Stain Channel from Sub-Collections"
+                        ]
+                    },
+                    {
+                        "id": "Selected Stain Channel Thresholded",
+                        "name": "Selected Stain Channel Thresholded",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Threshold Stain Channel Collection"
+                        ]
+                    },
+                    {
+                        "id": "ROIs Image",
+                        "name": "ROIs Image",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Generate ROIs of stained region"
+                        ]
+                    },
+                    {
+                        "id": "ROIs",
+                        "name": "ROIs",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Generate ROIs of stained region/rois"
+                        ]
+                    },
+                    {
+                        "id": "Collection of Tabular: Staining Quantification Results",
+                        "name": "Collection of Tabular: Staining Quantification Results",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Extract Image Features"
+                        ]
+                    },
+                    {
+                        "id": "Tabular File: Staining Feature Results",
+                        "name": "Tabular File: Staining Feature Results",
+                        "description": null,
+                        "type": [
+                            {
+                                "type": "File"
+                            }
+                        ],
+                        "source_ids": [
+                            "Percent area computation/out_file1"
+                        ]
+                    }
+                ],
+                "steps": [
+                    {
+                        "id": "1",
+                        "name": "Sample ID",
+                        "description": "Add Sample ID column name .\ntoolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_text_file_with_recurring_lines/9.5+galaxy3"
+                    },
+                    {
+                        "id": "2",
+                        "name": "header for total area",
+                        "description": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_text_file_with_recurring_lines/9.5+galaxy3"
+                    },
+                    {
+                        "id": "3",
+                        "name": "Color Deconvolution",
+                        "description": "Performs colour deconvolution using the H-E-DAB (HED) transformation, separating the image into individual stain channels. Channel 1 = Hematoxylin, Channel 2 = Eosin/target stain, Channel 3 = Residuals. Higher pixel intensity indicates lower stain concentration.\ntoolshed.g2.bx.psu.edu/repos/imgteam/color_deconvolution/ip_color_deconvolution/0.9+galaxy0"
+                    },
+                    {
+                        "id": "4",
+                        "name": "Show image info",
+                        "description": "toolshed.g2.bx.psu.edu/repos/imgteam/image_info/ip_imageinfo/5.7.1+galaxy1"
+                    },
+                    {
+                        "id": "5",
+                        "name": "Split Image Channels for Staining Detection",
+                        "description": "Splits multi-channel image into single-channel images. Extracts the target stain channel from the split image collection. Default index: 1 (Channel 2). Verify this corresponds to your stain of interest before running the workflow. The pixel data type is preserved.\ntoolshed.g2.bx.psu.edu/repos/imgteam/split_image/ip_split_image/2.3.5+galaxy0"
+                    },
+                    {
+                        "id": "6",
+                        "name": "Width Extraction",
+                        "description": "Grep1"
+                    },
+                    {
+                        "id": "7",
+                        "name": "Height Extraction",
+                        "description": "Grep1"
+                    },
+                    {
+                        "id": "8",
+                        "name": "Collection: Extract Stain Channel from Sub-Collections",
+                        "description": "This step extracts the second image (usually the relevant stain channel) from each sub-collection in a collection of collections. Please verify the selected channel is correct before proceeding. The current index is set to extract dataset 2.\n__EXTRACT_DATASET__"
+                    },
+                    {
+                        "id": "9",
+                        "name": "Text transformation",
+                        "description": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/9.5+galaxy3"
+                    },
+                    {
+                        "id": "10",
+                        "name": "Text transformation",
+                        "description": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/9.5+galaxy3"
+                    },
+                    {
+                        "id": "11",
+                        "name": "Threshold Stain Channel Collection",
+                        "description": "Applies a threshold to the selected stain channel to segment stained areas for quantification.\nTool only process tiff files with 1 channel. \ntoolshed.g2.bx.psu.edu/repos/imgteam/2d_auto_threshold/ip_threshold/0.25.2+galaxy0"
+                    },
+                    {
+                        "id": "12",
+                        "name": "Paste",
+                        "description": "Paste1"
+                    },
+                    {
+                        "id": "13",
+                        "name": "Generate ROIs of stained region",
+                        "description": "This step detects CD11b positive regions from the binary mask and generates polygon ROIs for each stained blob. ROIs can be uploaded to OMERO for visual validation of the threshold.\ntoolshed.g2.bx.psu.edu/repos/imgteam/imagej2_analyze_particles_binary/imagej2_analyze_particles_binary/20240614+galaxy0"
+                    },
+                    {
+                        "id": "14",
+                        "name": "Extract Image Features",
+                        "description": "Extracts quantitative features (e.g., mean intensity) from the thresholded image to support staining analysis.\n\n\ntoolshed.g2.bx.psu.edu/repos/imgteam/2d_feature_extraction/ip_2d_feature_extraction/0.25.2+galaxy1"
+                    },
+                    {
+                        "id": "15",
+                        "name": "Compute",
+                        "description": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.1+galaxy0"
+                    },
+                    {
+                        "id": "16",
+                        "name": "Prepare Header Source Dataset",
+                        "description": "Extracts a dataset that will be used to obtain the header row for the final concatenated tabular file in a subsequent step.\n__EXTRACT_DATASET__"
+                    },
+                    {
+                        "id": "17",
+                        "name": "Extract",
+                        "description": "Show tail1"
+                    },
+                    {
+                        "id": "18",
+                        "name": "Extract element identifiers",
+                        "description": "toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/0.0.2"
+                    },
+                    {
+                        "id": "19",
+                        "name": "Cut",
+                        "description": "Cut1"
+                    },
+                    {
+                        "id": "20",
+                        "name": "Header Extraction",
+                        "description": "Extracting header from source dataset to use in the final tabular file. \nShow beginning1"
+                    },
+                    {
+                        "id": "21",
+                        "name": "Collapse Collection into one file",
+                        "description": "Allows to collapse a collection of tabular files with the individual samples quantification into one tabular file. \ntoolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0"
+                    },
+                    {
+                        "id": "22",
+                        "name": "Collapse Collection",
+                        "description": "toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0"
+                    },
+                    {
+                        "id": "23",
+                        "name": "Paste header with Sample ID",
+                        "description": "Combined the Sample ID with the header of the remaining columns.\nPaste1"
+                    },
+                    {
+                        "id": "24",
+                        "name": "Paste Sample Names with Tabular Results",
+                        "description": "This step joins a list of sample names with their corresponding quantification results. It pastes both files side by side, ensuring that each sample name is aligned with the correct row of the quantification table.\nPaste1"
+                    },
+                    {
+                        "id": "25",
+                        "name": "Concatenate datasets",
+                        "description": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/9.5+galaxy3"
+                    },
+                    {
+                        "id": "26",
+                        "name": "Tabular: Staining Feature Results",
+                        "description": "This final output file contains the merged measurement results for all samples, and can be used for further statistical analysis.\ncat1"
+                    },
+                    {
+                        "id": "27",
+                        "name": "Paste",
+                        "description": "Paste1"
+                    },
+                    {
+                        "id": "28",
+                        "name": "Percent area computation",
+                        "description": "Computes the proportion of positive signal area relative to total image area, expressed as percentage.\ntoolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.1+galaxy0"
+                    }
+                ],
+                "links": [
+                    {
+                        "id": "infile",
+                        "source_id": "Height Extraction/out_file1",
+                        "sink_id": "10",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input1",
+                        "source_id": "9",
+                        "sink_id": "12",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input2",
+                        "source_id": "10",
+                        "sink_id": "12",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "12/out_file1",
+                        "sink_id": "15",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input_collection",
+                        "source_id": "Extract Image Features",
+                        "sink_id": "18",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "15/out_file1",
+                        "sink_id": "19",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input_list",
+                        "source_id": "19/out_file1",
+                        "sink_id": "22",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "inputs",
+                        "source_id": "header for total area/outfile",
+                        "sink_id": "25",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "queries_0|inputs2",
+                        "source_id": "22",
+                        "sink_id": "25",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input1",
+                        "source_id": "Tabular: Staining Feature Results/out_file1",
+                        "sink_id": "27",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input2",
+                        "source_id": "25/out_file1",
+                        "sink_id": "27",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input_file",
+                        "source_id": "ROI image for staining analysis",
+                        "sink_id": "4",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "infile",
+                        "source_id": "Width Extraction/out_file1",
+                        "sink_id": "9",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input_list",
+                        "source_id": "Extract/out_file1",
+                        "sink_id": "Collapse Collection into one file",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Split Image Channels for Staining Detection",
+                        "sink_id": "Collection: Extract Stain Channel from Sub-Collections",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "ROI image for staining analysis",
+                        "sink_id": "Color Deconvolution",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Extract Image Features",
+                        "sink_id": "Extract",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "labels",
+                        "source_id": "Threshold Stain Channel Collection",
+                        "sink_id": "Extract Image Features",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "setup|intensities",
+                        "source_id": "Collection: Extract Stain Channel from Sub-Collections",
+                        "sink_id": "Extract Image Features",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Threshold Stain Channel Collection",
+                        "sink_id": "Generate ROIs of stained region",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Prepare Header Source Dataset",
+                        "sink_id": "Header Extraction",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "4",
+                        "sink_id": "Height Extraction",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input1",
+                        "source_id": "18",
+                        "sink_id": "Paste Sample Names with Tabular Results",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input2",
+                        "source_id": "Collapse Collection into one file",
+                        "sink_id": "Paste Sample Names with Tabular Results",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input1",
+                        "source_id": "Sample ID/outfile",
+                        "sink_id": "Paste header with Sample ID",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input2",
+                        "source_id": "Header Extraction/out_file1",
+                        "sink_id": "Paste header with Sample ID",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "27/out_file1",
+                        "sink_id": "Percent area computation",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Extract Image Features",
+                        "sink_id": "Prepare Header Source Dataset",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Color Deconvolution",
+                        "sink_id": "Split Image Channels for Staining Detection",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input1",
+                        "source_id": "Paste header with Sample ID/out_file1",
+                        "sink_id": "Tabular: Staining Feature Results",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "queries_0|input2",
+                        "source_id": "Paste Sample Names with Tabular Results/out_file1",
+                        "sink_id": "Tabular: Staining Feature Results",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "Collection: Extract Stain Channel from Sub-Collections",
+                        "sink_id": "Threshold Stain Channel Collection",
+                        "name": null,
+                        "default_value": null
+                    },
+                    {
+                        "id": "input",
+                        "source_id": "4",
+                        "sink_id": "Width Extraction",
+                        "name": null,
+                        "default_value": null
+                    }
+                ]
+            },
+            "tools": []
+        },
+        "relationships": {
+            "creators": {
+                "data": []
+            },
+            "submitter": {
+                "data": [
+                    {
+                        "id": "112",
+                        "type": "people"
+                    }
+                ]
+            },
+            "people": {
+                "data": [
+                    {
+                        "id": "112",
+                        "type": "people"
+                    }
+                ]
+            },
+            "projects": {
+                "data": [
+                    {
+                        "id": "33",
+                        "type": "projects"
+                    }
+                ]
+            },
+            "investigations": {
+                "data": []
+            },
+            "studies": {
+                "data": []
+            },
+            "assays": {
+                "data": []
+            },
+            "publications": {
+                "data": []
+            },
+            "sops": {
+                "data": []
+            },
+            "presentations": {
+                "data": []
+            },
+            "data_files": {
+                "data": []
+            },
+            "documents": {
+                "data": []
+            }
+        },
+        "links": {
+            "self": "/workflows/2179?version=2"
+        },
+        "meta": {
+            "created": "2026-05-29T02:01:47.000Z",
+            "modified": "2026-05-29T02:01:47.000Z",
+            "api_version": "0.3",
+            "base_url": "https://workflowhub.eu",
+            "uuid": "45b2fb10-3d30-013f-39f8-005056ab8eb2"
+        }
+    },
+    "jsonapi": {
+        "version": "1.0"
+    }
+}

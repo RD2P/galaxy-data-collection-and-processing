@@ -127,6 +127,27 @@ The snapshot includes section-level counts such as:
 - Requests are throttled with a short delay between calls.
 - Keep raw JSONL as the source of truth; generate derived JSON views in separate files.
 
+## Ollama setup for local enrichment
+
+This project expects Ollama to be reachable at `http://localhost:4378` in the current environment.
+
+This port is forwarded locally via SSH, following the setup described in the RD2P guide:
+https://github.com/RD2P/summer-research-2026/blob/master/soarserver_ollama_setup.md
+
+In that setup, the server is exposed on the local machine through an SSH tunnel such as:
+
+```bash
+ssh -L 4378:localhost:4378 <user>@<host>
+```
+
+After the tunnel is active, the enrichment script can connect to the remote Ollama server through:
+
+```python
+OLLAMA_HOST = "http://localhost:4378"
+```
+
+This is the expected runtime configuration for the current lab environment.
+
 ## Tool IDs
 
 toolshed.g2.bx.psu.edu/repos/iuc/ncbi_acc_download/ncbi_acc_download/0.2.8+galaxy0

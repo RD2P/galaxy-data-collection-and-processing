@@ -410,7 +410,9 @@ def process_jsonl(
 
 
 if __name__ == "__main__":
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
     process_jsonl(
-        input_path="../tools_with_detail.jsonl",
-        output_path="data/tools_preprocessed.jsonl",
+        input_path=str(TOOLS_DIR / "tools_with_detail.jsonl"),
+        output_path=str(DATA_DIR / "tools_preprocessed.jsonl"),
     )

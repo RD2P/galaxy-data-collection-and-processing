@@ -7,13 +7,14 @@ import ollama
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
+METRICS_AND_ERRORS_DIR = BASE_DIR / "metrics_and_errors"
 
 MODEL = "qwen3.5:9b"
 
 INPUT_FILE = DATA_DIR / "tools_preprocessed.jsonl"
 OUTPUT_FILE = DATA_DIR / "tools_enriched.jsonl"
-METRICS_FILE = DATA_DIR / "tools_enrichment_metrics.jsonl"
-ERROR_FILE = DATA_DIR / "tools_enrichment_errors.jsonl"
+METRICS_FILE = METRICS_AND_ERRORS_DIR / "tools_enrichment_metrics.jsonl"
+ERROR_FILE = METRICS_AND_ERRORS_DIR / "tools_enrichment_errors.jsonl"
 PROMPT_FILE = BASE_DIR / "prompt.md"
 
 OLLAMA_HOST = "http://localhost:4378"
@@ -151,6 +152,7 @@ def get_completed_ids() -> set[str]:
 
 def main() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    METRICS_AND_ERRORS_DIR.mkdir(parents=True, exist_ok=True)
 
     system_prompt = load_prompt()
 

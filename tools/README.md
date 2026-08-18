@@ -35,11 +35,11 @@ Related endpoint:
 - `tool_summary.json`: compact summary of the Galaxy tool catalog
 - `tools_with_detail.jsonl`: raw collected tool records
 - `tools_with_detail.json`: export generated from the JSONL stream
-- `enrichment-pipeline/`: preprocessing and enrichment workflow for scientific metadata generation
+- `enrichment_pipeline/`: preprocessing and enrichment workflow for scientific metadata generation
 
 ## Enrichment pipeline
 
-The enrichment pipeline lives under `enrichment-pipeline/` and is the current downstream stage for tool metadata preparation.
+The enrichment pipeline lives under `enrichment_pipeline/` and is the current downstream stage for tool metadata preparation.
 
 ### Files
 
@@ -52,8 +52,8 @@ The enrichment pipeline lives under `enrichment-pipeline/` and is the current do
 ### Data flow
 
 1. Raw tool metadata is collected into `tools_with_detail.jsonl`.
-2. The preprocessor compresses and filters noisy metadata into `enrichment-pipeline/data/tools_preprocessed.jsonl`.
-3. `enrichment.py` loads that file, calls Ollama with the configured model, and writes enriched records to `enrichment-pipeline/data/tools_enriched.jsonl`.
+2. The preprocessor compresses and filters noisy metadata into `enrichment_pipeline/data/tools_preprocessed.jsonl`.
+3. `enrichment.py` loads that file, calls Ollama with the configured model, and writes enriched records to `enrichment_pipeline/data/tools_enriched.jsonl`.
 4. Per-tool timing and token metrics are logged to `tools_enrichment_metrics.jsonl`.
 5. Failed records are captured in `tools_enrichment_errors.jsonl`.
 
@@ -62,7 +62,7 @@ The enrichment pipeline lives under `enrichment-pipeline/` and is the current do
 From the repo root:
 
 ```bash
-cd tools/enrichment-pipeline
+cd tools/enrichment_pipeline
 python3 enrichment.py
 ```
 

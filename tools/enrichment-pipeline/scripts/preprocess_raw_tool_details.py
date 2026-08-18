@@ -1,5 +1,11 @@
 import json
+from pathlib import Path
 from typing import Any
+
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+DATA_DIR = BASE_DIR / "data"
+TOOLS_DIR = BASE_DIR.parent
 
 
 # Hard limits to prevent unusually large tools from dominating the LLM context.

@@ -5,7 +5,7 @@ from pathlib import Path
 import ollama
 
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 METRICS_AND_ERRORS_DIR = BASE_DIR / "metrics_and_errors"
 

@@ -4,7 +4,8 @@ from collections import Counter
 from typing import Any
 
 
-INPUT_FILE = Path("data/tools_enriched.jsonl")
+BASE_DIR = Path(__file__).resolve().parents[1]
+INPUT_FILE = BASE_DIR / "data" / "tools_enriched.jsonl"
 
 
 REQUIRED_TOP_LEVEL_FIELDS = {

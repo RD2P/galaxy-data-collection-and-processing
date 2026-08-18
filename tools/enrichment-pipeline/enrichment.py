@@ -154,7 +154,10 @@ def main() -> None:
 
     system_prompt = load_prompt()
 
-    client = ollama.Client(host=OLLAMA_HOST)
+    client = ollama.Client(
+        host=OLLAMA_HOST,
+        timeout=20
+    )
 
     completed_ids = get_completed_ids()
 

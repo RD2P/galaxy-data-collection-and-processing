@@ -5,13 +5,16 @@ from pathlib import Path
 import ollama
 
 
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+
 MODEL = "qwen3.5:9b"
 
-INPUT_FILE = Path("data/tools_preprocessed.jsonl")
-OUTPUT_FILE = Path("data/tools_enriched.jsonl")
-METRICS_FILE = Path("data/tools_enrichment_metrics.jsonl")
-ERROR_FILE = Path("data/tools_enrichment_errors.jsonl")
-PROMPT_FILE = Path("prompt.md")
+INPUT_FILE = DATA_DIR / "tools_preprocessed.jsonl"
+OUTPUT_FILE = DATA_DIR / "tools_enriched.jsonl"
+METRICS_FILE = DATA_DIR / "tools_enrichment_metrics.jsonl"
+ERROR_FILE = DATA_DIR / "tools_enrichment_errors.jsonl"
+PROMPT_FILE = BASE_DIR / "prompt.md"
 
 OLLAMA_HOST = "http://localhost:4378"
 
@@ -147,6 +150,8 @@ def get_completed_ids() -> set[str]:
 
 
 def main() -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
     system_prompt = load_prompt()
 
     client = ollama.Client(host=OLLAMA_HOST)
@@ -252,10 +257,6 @@ def main() -> None:
                     f"{metrics['output_tokens_per_sec']:.2f} tok/s"
                 )
                 print()
-
-                if processed >= 5:
-                    print("Reached 2 tools stopping early.")
-                    break
 
             except Exception as e:
                 failed += 1

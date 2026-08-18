@@ -1,6 +1,15 @@
 # Galaxy Tools Data Collection
 
-This directory contains scripts and artifacts for collecting and structuring Galaxy tool metadata for SciComposer.
+This directory contains the Galaxy tool collection and enrichment pipeline used for SciComposer data preparation.
+
+## Current status
+
+The repository has progressed past raw collection and into a preprocessing + enrichment workflow:
+
+- raw tool metadata is collected from the Galaxy API
+- the raw records are normalized for model-friendly ingestion
+- the preprocessed dataset is enriched with LLM-generated scientific metadata
+- the enrichment script now resolves paths robustly so it can run from multiple working directories without breaking
 
 ## Source API
 
@@ -16,41 +25,68 @@ Common query parameters:
 - `tool_version=<version>`: request a specific version when available
 
 Related endpoint:
-- `/tools/<tool_id>/input` (tool input schema/details route)
+- `/tools/<tool_id>/input`: tool input schema/details route
 
-## Directory Contents
+## Directory contents
 
-- `collect_galaxy_tools_with_detail.py.py`: fetches details for each tool ID and writes JSONL
-- `tools_with_detail.jsonl`: raw line-delimited collection output (append-only)
-- `convert_jsonl_to_json.py`: converts JSONL output to a JSON array file
-- `tools_with_detail.json`: array-format export of collected tool records
-- `tool.py`: reduces a tool catalog (`tools.json`) to a compact summary
-- `tool_summary.json`: simplified hierarchy output from `tool.py`
-- `tool_examples.json`: example records
+- `collect_galaxy_tools_with_detail.py`: fetches tool metadata from the Galaxy API and writes JSONL records
+- `convert_jsonl_to_json.py`: converts raw JSONL to a JSON array export
+- `generate_tool_summary.py`: summarizes the catalog structure and counts
+- `tool_summary.json`: compact summary of the Galaxy tool catalog
+- `tools_with_detail.jsonl`: raw collected tool records
+- `tools_with_detail.json`: export generated from the JSONL stream
+- `enrichment-pipeline/`: preprocessing and enrichment workflow for scientific metadata generation
 
-## Quick Start
+## Enrichment pipeline
 
-Collect tool details:
+The enrichment pipeline lives under `enrichment-pipeline/` and is the current downstream stage for tool metadata preparation.
+
+### Files
+
+- `enrichment.py`: runs the LLM enrichment loop against preprocessed tools
+- `preprocess_raw_tool_details.py`: simplifies and strips excess Galaxy metadata to a model-friendly representation
+- `prompt.md`: the system prompt used for enrichment
+- `data/`: runtime input and output data files
+- `.venv/`: local Python environment used for this workflow
+
+### Data flow
+
+1. Raw tool metadata is collected into `tools_with_detail.jsonl`.
+2. The preprocessor compresses and filters noisy metadata into `enrichment-pipeline/data/tools_preprocessed.jsonl`.
+3. `enrichment.py` loads that file, calls Ollama with the configured model, and writes enriched records to `enrichment-pipeline/data/tools_enriched.jsonl`.
+4. Per-tool timing and token metrics are logged to `tools_enrichment_metrics.jsonl`.
+5. Failed records are captured in `tools_enrichment_errors.jsonl`.
+
+## Running the enrichment job
+
+From the repo root:
 
 ```bash
-python collect_galaxy_tools_with_detail.py.py
+cd tools/enrichment-pipeline
+python3 enrichment.py
 ```
 
-Convert JSONL to JSON array:
+The script now resolves paths relative to the pipeline directory, so it is not dependent on the shell working directory.
+
+## Ollama setup for local enrichment
+
+This project expects Ollama to be reachable at `http://localhost:4378`.
+
+That port is forwarded locally via SSH, following the lab setup for the current environment:
 
 ```bash
-python convert_jsonl_to_json.py
+ssh -L 4378:localhost:4378 <user>@<host>
 ```
 
-Build compact catalog summary from `tools.json`:
+The runtime setting used by the current script is:
 
-```bash
-python tool.py
+```python
+OLLAMA_HOST = "http://localhost:4378"
 ```
 
-## Output Record Shape
+## Output record shape
 
-Successful fetch lines in `tools_with_detail.jsonl`:
+A raw collected record:
 
 ```json
 {
@@ -59,205 +95,47 @@ Successful fetch lines in `tools_with_detail.jsonl`:
 }
 ```
 
-Failed fetch lines:
+A preprocessed record is a reduced, cleaner representation intended for model use.
+
+An enriched output record has the shape:
 
 ```json
 {
-  "tool_id": "<id>",
-  "error": "<request error message>"
+  "tool_id": "...",
+  "name": "...",
+  "description": "...",
+  "enrichment": {
+    "purpose": "...",
+    "scientific_domains": [],
+    "operations": [],
+    "input_concepts": [],
+    "output_concepts": [],
+    "workflow_roles": [],
+    "use_cases": [],
+    "keywords": [],
+    "synonyms": [],
+    "enriched_description": "..."
+  }
 }
 ```
 
-## Captured Catalog Stats
+## Current snapshot stats
 
-From the current summary snapshot:
+From the latest collected catalog summary:
 - Total top-level items: 87
 - `ToolSection`: 79
 - `ToolSectionLabel`: 8
 - Total tool count (excluding labels): 2318
 - Distinct model classes observed: 28
 
-## Model Classes Observed
-
-- ToolSection
-- Tool
-- DataSourceTool
-- ToolSectionLabel
-- BuildListCollectionTool
-- DuplicateFileToCollectionTool
-- ConvertSampleSheetTool
-- FlattenTool
-- NestTool
-- MergeCollectionTool
-- SplitPairedAndUnpairedTool
-- FilterFailedDatasetsTool
-- FilterEmptyDatasetsTool
-- FilterNullTool
-- KeepSuccessDatasetsTool
-- FilterFromFileTool
-- ZipCollectionTool
-- UnzipCollectionTool
-- CrossProductFlatCollectionTool
-- CrossProductNestedCollectionTool
-- HarmonizeTool
-- SortTool
-- TagFromFileTool
-- RelabelFromFileTool
-- ExtractDatasetCollectionTool
-- ApplyRulesTool
-- ExpressionTool
-- InteractiveTool
-
-## Tool Section Counts (Snapshot)
-
-The snapshot includes section-level counts such as:
-- QIIME2: 161
-- ChemicalToolBox: 153
-- Metagenomic Analysis: 134
-- Mothur: 131
-- Imaging: 130
-- EMBOSS: 107
-- Annotation: 106
-- Single-cell: 75
-- RNA-seq: 73
-
 ## Notes
 
-- `collect_galaxy_tools_with_detail.py` appends to `tools_with_detail.jsonl`; reruns will add more lines unless the file is reset.
-- Requests are throttled with a short delay between calls.
-- Keep raw JSONL as the source of truth; generate derived JSON views in separate files.
-
-## Ollama setup for local enrichment
-
-This project expects Ollama to be reachable at `http://localhost:4378` in the current environment.
-
-This port is forwarded locally via SSH, following the setup described in the RD2P guide:
-https://github.com/RD2P/summer-research-2026/blob/master/soarserver_ollama_setup.md
-
-In that setup, the server is exposed on the local machine through an SSH tunnel such as:
-
-```bash
-ssh -L 4378:localhost:4378 <user>@<host>
-```
-
-After the tunnel is active, the enrichment script can connect to the remote Ollama server through:
-
-```python
-OLLAMA_HOST = "http://localhost:4378"
-```
-
-This is the expected runtime configuration for the current lab environment.
+- JSONL records are the main archival format and are intended for incremental processing and safe resume behavior.
+- The enrichment pipeline is designed to keep processing even if a single tool fails, while recording errors for later inspection.
+- The script now creates the data directory automatically and writes output files using robust, script-relative paths.
+- The raw collection files remain the source of truth; derived files should be treated as generated artifacts.
 
 ## Tool IDs
-
-toolshed.g2.bx.psu.edu/repos/iuc/ncbi_acc_download/ncbi_acc_download/0.2.8+galaxy0
-toolshed.g2.bx.psu.edu/repos/galaxyp/unipept/unipept/6.2.4+galaxy1
-toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fastq_dump/3.1.1+galaxy1
-ebi_sra_main
-toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/sam_dump/3.1.1+galaxy1
-toolshed.g2.bx.psu.edu/repos/iuc/sra_tools/fasterq_dump/3.1.1+galaxy1
-toolshed.g2.bx.psu.edu/repos/iuc/ebi_search_rest_results/ebi_search_rest_results/0.1.1
-toolshed.g2.bx.psu.edu/repos/iuc/ebi_metagenomics_run_downloader/ebi_metagenomics_run_downloader/0.1.0
-upload1
-ucsc_table_direct1
-toolshed.g2.bx.psu.edu/repos/iuc/ncbi_datasets/datasets_download_genome/18.33.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/ncbi_datasets/datasets_download_gene/18.33.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/iedb_api/iedb_api/2.15.3+galaxy1
-toolshed.g2.bx.psu.edu/repos/galaxyp/dbbuilder/dbbuilder/0.3.4
-toolshed.g2.bx.psu.edu/repos/galaxyp/uniprotxml_downloader/uniprotxml_downloader/2.5.0
-toolshed.g2.bx.psu.edu/repos/iuc/fastq_dl/fastq_dl/4.0.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/pysradb_search/pysradb_search/2.5.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/ega_download_client/pyega3/5.0.2+galaxy0
-export_remote
-__BUILD_LIST__
-__DUPLICATE_FILE_TO_COLLECTION__
-__CONVERT_SAMPLE_SHEET__
-toolshed.g2.bx.psu.edu/repos/bgruening/split_file_to_collection/split_file_to_collection/0.5.2
-__FLATTEN__
-__NEST__
-__MERGE_COLLECTION__
-__SPLIT_PAIRED_AND_UNPAIRED__
-toolshed.g2.bx.psu.edu/repos/iuc/collection_column_join/collection_column_join/0.0.3
-__FILTER_FAILED_DATASETS__
-__FILTER_EMPTY_DATASETS__
-__FILTER_NULL__
-__KEEP_SUCCESS_DATASETS__
-__FILTER_FROM_FILE__
-__ZIP_COLLECTION__
-__UNZIP_COLLECTION__
-__CROSS_PRODUCT_FLAT__
-__CROSS_PRODUCT_NESTED__
-__HARMONIZELISTS__
-toolshed.g2.bx.psu.edu/repos/nml/collapse_collections/collapse_dataset/5.1.0
-__SORTLIST__
-__TAG_FROM_FILE__
-__RELABEL_FROM_FILE__
-__EXTRACT_DATASET__
-__SAMPLE_SHEET_TO_TABULAR__
-__APPLY_RULES__
-toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/0.0.3
-toolshed.g2.bx.psu.edu/repos/iuc/compose_text_param/compose_text_param/0.1.1
-toolshed.g2.bx.psu.edu/repos/iuc/map_param_value/map_param_value/0.2.0
-toolshed.g2.bx.psu.edu/repos/iuc/pick_value/pick_value/0.2.0
-toolshed.g2.bx.psu.edu/repos/iuc/calculate_numeric_param/calculate_numeric_param/0.1.0
-param_value_from_file
-toolshed.g2.bx.psu.edu/repos/bgruening/column_arrange_by_header/bg_column_arrange_by_header/0.3
-toolshed.g2.bx.psu.edu/repos/iuc/filter_tabular/filter_tabular/3.3.1
-toolshed.g2.bx.psu.edu/repos/iuc/sqlite_to_tabular/sqlite_to_tabular/3.2.1
-toolshed.g2.bx.psu.edu/repos/iuc/query_tabular/query_tabular/3.3.2
-toolshed.g2.bx.psu.edu/repos/iuc/table_compute/table_compute/1.2.4+galaxy2
-toolshed.g2.bx.psu.edu/repos/iuc/annotatemyids/annotatemyids/3.18.0+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/2.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/mvdbeek/concatenate_multiple_datasets/cat_multiple/0.2
-toolshed.g2.bx.psu.edu/repos/bgruening/split_file_on_column/tp_split_on_column/0.6
-toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3
-toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regexColumn1/1.0.3
-toolshed.g2.bx.psu.edu/repos/mvdbeek/add_input_name_as_column/addName/0.3.0
-toolshed.g2.bx.psu.edu/repos/iuc/reshape2_melt/melt/1.4.2
-toolshed.g2.bx.psu.edu/repos/iuc/reshape2_cast/cast/1.4.2
-toolshed.g2.bx.psu.edu/repos/iuc/jq/jq/1.8.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/gff3_rebase/gff3.rebase/1.2
-toolshed.g2.bx.psu.edu/repos/iuc/column_remove_by_header/column_remove_by_header/1.0
-toolshed.g2.bx.psu.edu/repos/iuc/column_order_header_sort/column_order_header_sort/0.0.1
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_find_and_replace/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/uniprot_rest_interface/uniprot/0.8
-toolshed.g2.bx.psu.edu/repos/bgruening/replace_column_by_key_value_file/replace_column_with_key_value_file/0.2
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tac/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cut_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_tail_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_head_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_uniq_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_text_file_with_recurring_lines/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_multijoin_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_easyjoin_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_unfold_column_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sorted_uniq/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_header_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sort_rows/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/add_line_to_file/add_line_to_file/0.1.0
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_column/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/9.5+galaxy3
-addValue
-cat1
-Condense characters1
-Convert characters1
-mergeCols1
-createInterval
-Cut1
-ChangeCase
-Paste1
-Remove beginning1
-random_lines1
-Show beginning1
-Show tail1
-trimmer
-wc_gnu
-secure_hash_message_digest
-toolshed.g2.bx.psu.edu/repos/devteam/add_value/addValue/1.0.1
 toolshed.g2.bx.psu.edu/repos/artbio/concatenate_multiple_datasets/cat_multi_datasets/1.4.3
 toolshed.g2.bx.psu.edu/repos/bgruening/diff/diff/3.10+galaxy1
 toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/nl/9.5+galaxy3

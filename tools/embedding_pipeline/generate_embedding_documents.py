@@ -3,8 +3,12 @@ from pathlib import Path
 from typing import Any
 
 
-INPUT_FILE = Path("data/tools_enriched.jsonl")
-OUTPUT_FILE = Path("data/tools_embedding_documents.jsonl")
+BASE_DIR = Path(__file__).resolve().parent
+ENRICHMENT_PIPELINE_DIR = BASE_DIR.parent / "enrichment_pipeline"
+DATA_DIR = ENRICHMENT_PIPELINE_DIR / "data"
+INPUT_FILE = DATA_DIR / "tools_enriched.jsonl"
+OUTPUT_DIR = BASE_DIR / "data"
+OUTPUT_FILE = OUTPUT_DIR / "tools_embedding_documents.jsonl"
 
 
 def format_list(value: Any) -> str:
@@ -43,8 +47,10 @@ def build_document(tool: dict[str, Any]) -> str:
 def main() -> None:
     if not INPUT_FILE.exists():
         raise FileNotFoundError(f"Input file not found: {INPUT_FILE}")
+    if not INPUT_FILE.is_file():
+        raise ValueError(f"Input path is not a file: {INPUT_FILE}")
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     total = 0
 

@@ -130,6 +130,29 @@ An enriched output record has the shape:
   Processed: 2329
   Failed: 8
   ```
+
+## Enrichment validation summary
+
+  ```
+  ============================================================
+  Galaxy Tool Enrichment Validation
+  ============================================================
+  Input file:       data/tools_enriched.jsonl
+  Total records:    2340
+  Valid records:    2198
+  Invalid records:  142
+  Parse errors:     0
+  Unique IDs:       2340
+  Duplicate IDs:    0
+
+  Error summary:
+      133  missing field: description
+        7  empty field: enrichment.input_concepts
+        2  empty field: enrichment.scientific_domains
+  ```
+
+The original Galaxy tools data had empty strings in the description of 133 tools. For enrichment fields that cannot be supported by the source metadata, empty lists or strings are valid and should not be treated as errors; only malformed records, wrong types, or missing core metadata should fail validation.
+
 ## Current snapshot stats
 
 From the latest collected catalog summary:

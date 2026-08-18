@@ -119,6 +119,17 @@ An enriched output record has the shape:
 }
 ```
 
+## Enrichment run summary
+  ```
+  Summary
+    avg total duration: 6.39s
+    avg prompt throughput: 3764.63 tok/s
+    avg output throughput: 94.24 tok/s
+
+  Finished
+  Processed: 2329
+  Failed: 8
+  ```
 ## Current snapshot stats
 
 From the latest collected catalog summary:

@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 
 INPUT_FILE = Path("data/tools_embedding_documents.jsonl")
 INDEX_FILE = Path("data/tools.faiss")
-METADATA_FILE = Path("data/tools_embedding_metadata.jsonl")
+METADATA_FILE = Path("data/tools_index_metadata.json")
 
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 BATCH_SIZE = 64
@@ -53,6 +53,7 @@ def load_documents() -> tuple[list[str], list[dict]]:
             documents.append(document)
 
             metadata.append({
+                "index": len(metadata),
                 "tool_id": tool_id,
                 "name": record.get("name", ""),
                 "version": record.get("version", ""),
@@ -92,10 +93,26 @@ def build_index(
     return index, embeddings
 
 
-def save_metadata(metadata: list[dict]) -> None:
+def save_metadata(
+    metadata: list[dict],
+    dimension: int,
+) -> None:
+    metadata_record = {
+        "model": MODEL_NAME,
+        "dimension": dimension,
+        "metric": "cosine_similarity",
+        "index_type": "IndexFlatIP",
+        "count": len(metadata),
+        "tools": metadata,
+    }
+
     with METADATA_FILE.open("w", encoding="utf-8") as f:
-        for item in metadata:
-            f.write(json.dumps(item, ensure_ascii=False) + "\n")
+        json.dump(
+            metadata_record,
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
 
 
 def main() -> None:
@@ -128,7 +145,7 @@ def main() -> None:
 
     print(f"Saving metadata: {METADATA_FILE}")
 
-    save_metadata(metadata)
+    save_metadata(metadata, int(embeddings.shape[1]))
 
     print("\n" + "=" * 60)
     print("Index build complete")

@@ -206,7 +206,7 @@ The output is:
 
 Output files:
 - `embedding_pipeline/data/tools.faiss`
-- `embedding_pipeline/data/tools_embedding_metadata.jsonl`
+- `embedding_pipeline/data/tools_index_metadata.json`
 
 Latest run summary:
 
@@ -215,7 +215,7 @@ Embedding dimension: 384
 Embedding shape:     (2340, 384)
 
 Saving FAISS index: data/tools.faiss
-Saving metadata: data/tools_embedding_metadata.jsonl
+Saving metadata: data/tools_index_metadata.json
 
 ============================================================
 Index build complete
@@ -223,7 +223,7 @@ Index build complete
 Vectors:       2340
 Dimension:     384
 Index:         data/tools.faiss
-Metadata:      data/tools_embedding_metadata.jsonl
+Metadata:      data/tools_index_metadata.json
 ============================================================
 ```
 

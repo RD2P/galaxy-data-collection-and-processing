@@ -1,3 +1,0 @@
-faiss-gpu
-numpy
-sentence_transformers

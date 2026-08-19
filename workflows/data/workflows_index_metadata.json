@@ -1,0 +1,3774 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "metric": "cosine_similarity",
+  "index_type": "IndexFlatIP",
+  "count": 753,
+  "workflows": [
+    {
+      "index": 0,
+      "id": "2179",
+      "title": "histological-staining-area-quantification/histological-staining-area-quantification"
+    },
+    {
+      "index": 1,
+      "id": "2174",
+      "title": "Spatial Transcriptomics Analysis in Galaxy"
+    },
+    {
+      "index": 2,
+      "id": "1443",
+      "title": "Metaproteomics_GTN"
+    },
+    {
+      "index": 3,
+      "id": "1873",
+      "title": "Final - Modeling Breast Cancer Subtypes (flexynesis only)"
+    },
+    {
+      "index": 4,
+      "id": "1633",
+      "title": "ml_regression (imported from uploaded file)"
+    },
+    {
+      "index": 5,
+      "id": "1953",
+      "title": "Introduction to DH in Galaxy"
+    },
+    {
+      "index": 6,
+      "id": "2170",
+      "title": "Test tuto yolo DeepSeaSpy"
+    },
+    {
+      "index": 7,
+      "id": "1623",
+      "title": "Text-Mining Differences in Chinese Newspaper Articles"
+    },
+    {
+      "index": 8,
+      "id": "1884",
+      "title": "Visualise amount of objects in Museum Collection"
+    },
+    {
+      "index": 9,
+      "id": "880",
+      "title": "Convert formats - TSI"
+    },
+    {
+      "index": 10,
+      "id": "881",
+      "title": "Fgenesh annotation -TSI"
+    },
+    {
+      "index": 11,
+      "id": "1964",
+      "title": "Visualise amount of objects in Museum Collection"
+    },
+    {
+      "index": 12,
+      "id": "2167",
+      "title": "GlyCombo Galaxy"
+    },
+    {
+      "index": 13,
+      "id": "632",
+      "title": "kmer-profiling-hifi-VGP1/main"
+    },
+    {
+      "index": 14,
+      "id": "1648",
+      "title": "Mitogenome-Assembly-VGP0"
+    },
+    {
+      "index": 15,
+      "id": "1429",
+      "title": "Proteogenomics 2: Database Search"
+    },
+    {
+      "index": 16,
+      "id": "226",
+      "title": "Assembly polishing"
+    },
+    {
+      "index": 17,
+      "id": "403",
+      "title": "Genome-assessment-post-assembly"
+    },
+    {
+      "index": 18,
+      "id": "2159",
+      "title": "Transcription Speech to Text (imported from uploaded file)"
+    },
+    {
+      "index": 19,
+      "id": "1740",
+      "title": "vvv2_align_SE_bwamem2_nanopore"
+    },
+    {
+      "index": 20,
+      "id": "1738",
+      "title": "vvv2_align_PE_bwamem2"
+    },
+    {
+      "index": 21,
+      "id": "1739",
+      "title": "vvv2_align_SE_bwamem2"
+    },
+    {
+      "index": 22,
+      "id": "1741",
+      "title": "vvv2_align_SE_minimap2_pacbio"
+    },
+    {
+      "index": 23,
+      "id": "2155",
+      "title": "GLEAM Multimodal Learner - HANCOCK recurrence prediction"
+    },
+    {
+      "index": 24,
+      "id": "2118",
+      "title": "functional-annotation-of-sequences/main"
+    },
+    {
+      "index": 25,
+      "id": "2117",
+      "title": "Olympic Age Distribution"
+    },
+    {
+      "index": 26,
+      "id": "2116",
+      "title": "Galaxy Workflow - ARC2OMERO"
+    },
+    {
+      "index": 27,
+      "id": "2115",
+      "title": "mag-genome-annotation-parallel/main"
+    },
+    {
+      "index": 28,
+      "id": "612",
+      "title": "Assembly-Hifi-only-VGP3/main"
+    },
+    {
+      "index": 29,
+      "id": "2112",
+      "title": "ploidy-aware-genotype-calling/main"
+    },
+    {
+      "index": 30,
+      "id": "2111",
+      "title": "hyphy/capheine-core-and-compare"
+    },
+    {
+      "index": 31,
+      "id": "625",
+      "title": "Scaffolding-HiC-VGP8/main"
+    },
+    {
+      "index": 32,
+      "id": "2108",
+      "title": "2024_OMERO_Basic_Upload"
+    },
+    {
+      "index": 33,
+      "id": "2107",
+      "title": "Segmentation of Anatomical Structures in Medical Images"
+    },
+    {
+      "index": 34,
+      "id": "2100",
+      "title": "binning-evaluation/main"
+    },
+    {
+      "index": 35,
+      "id": "2099",
+      "title": "mags-taxonomy-annotation/main"
+    },
+    {
+      "index": 36,
+      "id": "2098",
+      "title": "Taxonomy Assignment with QIIME2"
+    },
+    {
+      "index": 37,
+      "id": "2089",
+      "title": "ISCC - image analysis workflow example"
+    },
+    {
+      "index": 38,
+      "id": "2088",
+      "title": "BiaPy"
+    },
+    {
+      "index": 39,
+      "id": "2086",
+      "title": "Deep metabolome annotation LC-MS/MS (metabolite standard mixtures) workflow (W3)"
+    },
+    {
+      "index": 40,
+      "id": "2085",
+      "title": "Deep metabolome annotation LC-MS/MS workflow (W2)"
+    },
+    {
+      "index": 41,
+      "id": "2084",
+      "title": "Deep metabolome annotation LC-MS/MS fractionation and DIMSn workflow (W1)"
+    },
+    {
+      "index": 42,
+      "id": "2083",
+      "title": "Example deep metabolome annotation LC-MS/MS data processing and annotation workflow"
+    },
+    {
+      "index": 43,
+      "id": "605",
+      "title": "ERGA Long reads+HiC Assembly+QC Hifiasm v2602 (WF2)"
+    },
+    {
+      "index": 44,
+      "id": "603",
+      "title": "ERGA Profiling Long Reads v2602 (WF1)"
+    },
+    {
+      "index": 45,
+      "id": "2073",
+      "title": "Image Learner - HAM10000"
+    },
+    {
+      "index": 46,
+      "id": "751",
+      "title": "Purge-duplicates-one-haplotype-VGP6b/main"
+    },
+    {
+      "index": 47,
+      "id": "633",
+      "title": "Purge-duplicate-contigs-VGP6/main"
+    },
+    {
+      "index": 48,
+      "id": "2068",
+      "title": "metagenomic-raw-reads-amr-analysis/main"
+    },
+    {
+      "index": 49,
+      "id": "2055",
+      "title": "cgmlst-bacterial-genome/main"
+    },
+    {
+      "index": 50,
+      "id": "602",
+      "title": "ERGA DataQC HiFi v2601 (WF0)"
+    },
+    {
+      "index": 51,
+      "id": "601",
+      "title": "ERGA DataQC Illumina v2601 (WF0)"
+    },
+    {
+      "index": 52,
+      "id": "2049",
+      "title": "TB variants tutorial main workflow"
+    },
+    {
+      "index": 53,
+      "id": "1647",
+      "title": "TB Variant Analysis v1.0"
+    },
+    {
+      "index": 54,
+      "id": "2048",
+      "title": "Debruijn Graph Velvet Full and SPAdes Assembly"
+    },
+    {
+      "index": 55,
+      "id": "2047",
+      "title": "Debruijn Graph Velvet Optimiser and SPAdes Assembly"
+    },
+    {
+      "index": 56,
+      "id": "2046",
+      "title": "Debruijn Graph SPAdes Assembly"
+    },
+    {
+      "index": 57,
+      "id": "1613",
+      "title": "Genome Assembly of MRSA using Oxford Nanopore MinION (and Illumina data if available)"
+    },
+    {
+      "index": 58,
+      "id": "1602",
+      "title": "Genome Assembly of MRSA using Illumina MiSeq Data"
+    },
+    {
+      "index": 59,
+      "id": "2043",
+      "title": "Quality and contamination control in bacterial isolate using Illumina MiSeq Data"
+    },
+    {
+      "index": 60,
+      "id": "1661",
+      "title": "GTN - Sequence Analyses - Mapping"
+    },
+    {
+      "index": 61,
+      "id": "1615",
+      "title": "GTN - ChIP Seq - Formation Of Super Structures On Xi"
+    },
+    {
+      "index": 62,
+      "id": "1568",
+      "title": "ATAC-seq GTM"
+    },
+    {
+      "index": 63,
+      "id": "2042",
+      "title": "Host contamination removal"
+    },
+    {
+      "index": 64,
+      "id": "1470",
+      "title": "Taxonomic Profiling and Visualization of Metagenomic Data"
+    },
+    {
+      "index": 65,
+      "id": "1674",
+      "title": "Checking expected species and contamination in bacterial isolate"
+    },
+    {
+      "index": 66,
+      "id": "1488",
+      "title": "mrsa AMR gene detection"
+    },
+    {
+      "index": 67,
+      "id": "782",
+      "title": "Wound Healing Scratch Assay Image Analysis"
+    },
+    {
+      "index": 68,
+      "id": "2009",
+      "title": "Genetic Design (BASIC Assembly)"
+    },
+    {
+      "index": 69,
+      "id": "2038",
+      "title": "De novo"
+    },
+    {
+      "index": 70,
+      "id": "2036",
+      "title": "Map-to-reference"
+    },
+    {
+      "index": 71,
+      "id": "1715",
+      "title": "QC + Mapping + Counting (single+paired) - Ref Based RNA Seq - Transcriptomics - GTN"
+    },
+    {
+      "index": 72,
+      "id": "1711",
+      "title": "QC + Mapping + Counting - Ref Based RNA Seq - Transcriptomics - GTN - subworkflows"
+    },
+    {
+      "index": 73,
+      "id": "2029",
+      "title": "annotation-braker3/main"
+    },
+    {
+      "index": 74,
+      "id": "2028",
+      "title": "Metagenomic Binning"
+    },
+    {
+      "index": 75,
+      "id": "2027",
+      "title": "host-contamination-removal-long-reads/main"
+    },
+    {
+      "index": 76,
+      "id": "2026",
+      "title": "host-contamination-removal-short-reads/main"
+    },
+    {
+      "index": 77,
+      "id": "2025",
+      "title": "short-read-qc-trimming/main"
+    },
+    {
+      "index": 78,
+      "id": "1718",
+      "title": "Heatmap2 Workflow"
+    },
+    {
+      "index": 79,
+      "id": "2024",
+      "title": "metagenomic-genes-catalogue/main"
+    },
+    {
+      "index": 80,
+      "id": "1713",
+      "title": "DEG Part - Ref Based RNA Seq - Transcriptomics - GTN"
+    },
+    {
+      "index": 81,
+      "id": "2014",
+      "title": "OCR Test DaSch"
+    },
+    {
+      "index": 82,
+      "id": "2011",
+      "title": "Hybrid Genome Assembly Tutorial Workflow"
+    },
+    {
+      "index": 83,
+      "id": "2008",
+      "title": "ENA Reads and Assembly Submission Workflow"
+    },
+    {
+      "index": 84,
+      "id": "2007",
+      "title": "Genetic Design (Gibson, Golden Gate, LCR)"
+    },
+    {
+      "index": 85,
+      "id": "2005",
+      "title": "Pathway Analysis"
+    },
+    {
+      "index": 86,
+      "id": "2004",
+      "title": "RetroSynthesis"
+    },
+    {
+      "index": 87,
+      "id": "2003",
+      "title": "AI-CellFree - Core"
+    },
+    {
+      "index": 88,
+      "id": "2002",
+      "title": "AI-CellFree - Init"
+    },
+    {
+      "index": 89,
+      "id": "1381",
+      "title": "EOSC4Cancer D2.2"
+    },
+    {
+      "index": 90,
+      "id": "1502",
+      "title": "scATAC-seq Count Matrix Filtering"
+    },
+    {
+      "index": 91,
+      "id": "1506",
+      "title": "scATAC-seq FASTQ to Count Matrix"
+    },
+    {
+      "index": 92,
+      "id": "2001",
+      "title": "Domestication and cloning simulation workflow"
+    },
+    {
+      "index": 93,
+      "id": "2000",
+      "title": "Cloning Simulation workflow"
+    },
+    {
+      "index": 94,
+      "id": "645",
+      "title": "Assembly-decontamination-VGP9/main"
+    },
+    {
+      "index": 95,
+      "id": "642",
+      "title": "Assembly-Hifi-Trio-phasing-VGP5/main"
+    },
+    {
+      "index": 96,
+      "id": "1961",
+      "title": "Argo-Glider Nitrate QCV"
+    },
+    {
+      "index": 97,
+      "id": "738",
+      "title": "Mitogenome-assembly-VGP0/main"
+    },
+    {
+      "index": 98,
+      "id": "1831",
+      "title": "PATH2XNAT ST workflow Xenium non-diseased lung test data analysis"
+    },
+    {
+      "index": 99,
+      "id": "1882",
+      "title": "bacterial-quality-and-contamination-control-post-assembly/main"
+    },
+    {
+      "index": 100,
+      "id": "1881",
+      "title": "quality-and-contamination-control-raw-reads/main"
+    },
+    {
+      "index": 101,
+      "id": "694",
+      "title": "fastq-to-matrix-10x/scrna-seq-fastq-to-matrix-10x-cellplex"
+    },
+    {
+      "index": 102,
+      "id": "397",
+      "title": "chipseq-sr/main"
+    },
+    {
+      "index": 103,
+      "id": "398",
+      "title": "chipseq-pe/main"
+    },
+    {
+      "index": 104,
+      "id": "155",
+      "title": "sars-cov-2-pe-illumina-artic-ivar-analysis/SARS-COV-2-ILLUMINA-AMPLICON-IVAR-PANGOLIN-NEXTCLADE"
+    },
+    {
+      "index": 105,
+      "id": "113",
+      "title": "sars-cov-2-pe-illumina-wgs-variant-calling/COVID-19-PE-WGS-ILLUMINA"
+    },
+    {
+      "index": 106,
+      "id": "1876",
+      "title": "generic-non-segmented-viral-variant-calling/main"
+    },
+    {
+      "index": 107,
+      "id": "1877",
+      "title": "Workflow-1"
+    },
+    {
+      "index": 108,
+      "id": "111",
+      "title": "sars-cov-2-ont-artic-variant-calling/COVID-19-ARTIC-ONT"
+    },
+    {
+      "index": 109,
+      "id": "622",
+      "title": "sra-manifest-to-concatenated-fastqs/main"
+    },
+    {
+      "index": 110,
+      "id": "1260",
+      "title": "influenza-isolates-consensus-and-subtyping/main"
+    },
+    {
+      "index": 111,
+      "id": "439",
+      "title": "pox-virus-amplicon/main"
+    },
+    {
+      "index": 112,
+      "id": "112",
+      "title": "sars-cov-2-se-illumina-wgs-variant-calling/COVID-19-SE-WGS-ILLUMINA"
+    },
+    {
+      "index": 113,
+      "id": "138",
+      "title": "sars-cov-2-consensus-from-variation/COVID-19-CONSENSUS-CONSTRUCTION"
+    },
+    {
+      "index": 114,
+      "id": "109",
+      "title": "sars-cov-2-variation-reporting/COVID-19-VARIATION-REPORTING"
+    },
+    {
+      "index": 115,
+      "id": "575",
+      "title": "repeatmasking/main"
+    },
+    {
+      "index": 116,
+      "id": "1255",
+      "title": "annotation-helixer/main"
+    },
+    {
+      "index": 117,
+      "id": "1262",
+      "title": "functional-annotation-protein-sequences/main"
+    },
+    {
+      "index": 118,
+      "id": "1323",
+      "title": "annotation-maker/main"
+    },
+    {
+      "index": 119,
+      "id": "1324",
+      "title": "lncRNAs-annotation/main"
+    },
+    {
+      "index": 120,
+      "id": "1874",
+      "title": "Final - Survival Markers of Lower Grade"
+    },
+    {
+      "index": 121,
+      "id": "1353",
+      "title": "ATel Follow-up Photometric data Legacy Survey Photo-z"
+    },
+    {
+      "index": 122,
+      "id": "1856",
+      "title": "MGnify's amplicon pipeline v5.0 - ITS"
+    },
+    {
+      "index": 123,
+      "id": "1855",
+      "title": "MAPseq to ampvis2"
+    },
+    {
+      "index": 124,
+      "id": "1854",
+      "title": "MGnify's amplicon pipeline v5.0 - Quality control PE"
+    },
+    {
+      "index": 125,
+      "id": "1853",
+      "title": "MGnify's amplicon pipeline v5.0"
+    },
+    {
+      "index": 126,
+      "id": "1852",
+      "title": "Final - Unsupervised Analysis of Bone Marrow Cells"
+    },
+    {
+      "index": 127,
+      "id": "1851",
+      "title": "MGnify amplicon summary tables"
+    },
+    {
+      "index": 128,
+      "id": "1850",
+      "title": "MGnify's amplicon pipeline v5.0 - Quality control SE"
+    },
+    {
+      "index": 129,
+      "id": "1849",
+      "title": "Flexynesis - get data from Cbioportal"
+    },
+    {
+      "index": 130,
+      "id": "1848",
+      "title": "Electrophoresis-Gel-Bands-Image-Analysis"
+    },
+    {
+      "index": 131,
+      "id": "1717",
+      "title": "Whole transcriptome analysis of Arabidopsis thaliana"
+    },
+    {
+      "index": 132,
+      "id": "1847",
+      "title": "Hi-C Analysis with Galaxy Tutorial Workflow"
+    },
+    {
+      "index": 133,
+      "id": "1845",
+      "title": "Workflow test for SABER (Falco and Bowtie2)"
+    },
+    {
+      "index": 134,
+      "id": "1842",
+      "title": "MGnify's amplicon pipeline v5.0 - rRNA prediction"
+    },
+    {
+      "index": 135,
+      "id": "1840",
+      "title": "YOLO training and segmentation workflow"
+    },
+    {
+      "index": 136,
+      "id": "1698",
+      "title": "Marine Omics visualisation"
+    },
+    {
+      "index": 137,
+      "id": "1663",
+      "title": "Marine Omics identifying biosynthetic gene clusters"
+    },
+    {
+      "index": 138,
+      "id": "1714",
+      "title": "NDVI with OpenEO"
+    },
+    {
+      "index": 139,
+      "id": "1500",
+      "title": "annotation_helixer"
+    },
+    {
+      "index": 140,
+      "id": "1554",
+      "title": "Apollo Load Test"
+    },
+    {
+      "index": 141,
+      "id": "1538",
+      "title": "RepeatMasker"
+    },
+    {
+      "index": 142,
+      "id": "1525",
+      "title": "Funannotate"
+    },
+    {
+      "index": 143,
+      "id": "1521",
+      "title": "Functional annotation"
+    },
+    {
+      "index": 144,
+      "id": "1746",
+      "title": "Comparison of two annotation tools: Helixer and Braker3"
+    },
+    {
+      "index": 145,
+      "id": "1586",
+      "title": "Finding the Muon Stopping Site: pymuon-suite in Galaxy"
+    },
+    {
+      "index": 146,
+      "id": "1579",
+      "title": "gpu_jupytool"
+    },
+    {
+      "index": 147,
+      "id": "1440",
+      "title": "Sentinel5 volcanic data"
+    },
+    {
+      "index": 148,
+      "id": "1436",
+      "title": "Analyse Argo data"
+    },
+    {
+      "index": 149,
+      "id": "1690",
+      "title": "Champs blocs indicators"
+    },
+    {
+      "index": 150,
+      "id": "1669",
+      "title": "Sentinel 2 example"
+    },
+    {
+      "index": 151,
+      "id": "1445",
+      "title": "Ocean's variables 2.0"
+    },
+    {
+      "index": 152,
+      "id": "1509",
+      "title": "Genome annotation with Braker3"
+    },
+    {
+      "index": 153,
+      "id": "1839",
+      "title": "Alignment and Phylogeny"
+    },
+    {
+      "index": 154,
+      "id": "1637",
+      "title": "Intro_To_Deep_Learning"
+    },
+    {
+      "index": 155,
+      "id": "1811",
+      "title": "YOLO training and segmentation"
+    },
+    {
+      "index": 156,
+      "id": "1447",
+      "title": "Workflow 3: Functional Information (quick)"
+    },
+    {
+      "index": 157,
+      "id": "1805",
+      "title": "Catalysts in gasoline particulate filters"
+    },
+    {
+      "index": 158,
+      "id": "1806",
+      "title": "N2O decomposition on LaMnO3"
+    },
+    {
+      "index": 159,
+      "id": "1804",
+      "title": "MoOx/Al2O3 Cyclic Operation"
+    },
+    {
+      "index": 160,
+      "id": "1803",
+      "title": "Pd-Al2O3 Catalyst for Ammonia"
+    },
+    {
+      "index": 161,
+      "id": "1802",
+      "title": "LaMnO3 catalytic behaviour"
+    },
+    {
+      "index": 162,
+      "id": "1801",
+      "title": "Palladium-Catalyzed CO Oxidation"
+    },
+    {
+      "index": 163,
+      "id": "1800",
+      "title": "Ultra-dilute Au colloids"
+    },
+    {
+      "index": 164,
+      "id": "1799",
+      "title": "Diphosphine ligands in iron"
+    },
+    {
+      "index": 165,
+      "id": "1798",
+      "title": "Pt3Sn nanoparticle electrocatalysts"
+    },
+    {
+      "index": 166,
+      "id": "1730",
+      "title": "Voronoi segmentation for Astronomy on Legacy Survey data"
+    },
+    {
+      "index": 167,
+      "id": "1794",
+      "title": "GigaScience-RNAseq-Optitype-seq2HLA-to-IEDB-alleles"
+    },
+    {
+      "index": 168,
+      "id": "1793",
+      "title": "GigaScience_Database_merge_FragPipe_STS26T_demonstration"
+    },
+    {
+      "index": 169,
+      "id": "1792",
+      "title": "Gigascience_Fusions_demonstration_STS26T-Gent_Workflow"
+    },
+    {
+      "index": 170,
+      "id": "1791",
+      "title": "GigaScience_PepQuery2_demonstration_STS26T_neoantigen_candidates_workflow"
+    },
+    {
+      "index": 171,
+      "id": "1790",
+      "title": "GigaScience_Peptide_Annotation_demonstration_STS26T_neoantigen_candidates_workflow"
+    },
+    {
+      "index": 172,
+      "id": "1789",
+      "title": "GigaScience-IEDB-PepQuery-Neoantigen"
+    },
+    {
+      "index": 173,
+      "id": "1788",
+      "title": "Gigascience_Indels_SAV_non-reference_demonstration_STS26T-Gent_Workflow"
+    },
+    {
+      "index": 174,
+      "id": "1487",
+      "title": "Pathogen Detection PathoGFAIR Samples Aggregation and Visualisation"
+    },
+    {
+      "index": 175,
+      "id": "1492",
+      "title": "Nanopore Preprocessing"
+    },
+    {
+      "index": 176,
+      "id": "1395",
+      "title": "Building an amplicon sequence variant (ASV) table from 16S data using DADA2"
+    },
+    {
+      "index": 177,
+      "id": "1784",
+      "title": "workflow-2"
+    },
+    {
+      "index": 178,
+      "id": "1768",
+      "title": "workflow-0"
+    },
+    {
+      "index": 179,
+      "id": "1767",
+      "title": "WGS2Protein v3.0.0"
+    },
+    {
+      "index": 180,
+      "id": "1466",
+      "title": "Metatranscriptomics analysis using microbiome RNA-seq data"
+    },
+    {
+      "index": 181,
+      "id": "1451",
+      "title": "Metatranscriptomics analysis using microbiome RNA-seq data - Workflow 2: Community profile"
+    },
+    {
+      "index": 182,
+      "id": "1444",
+      "title": "Metatranscriptomics analysis using microbiome RNA-seq data - Workflow 1: Preprocessing"
+    },
+    {
+      "index": 183,
+      "id": "1456",
+      "title": "Metatranscriptomics analysis using microbiome RNA-seq data - Workflow 3: Functional Information"
+    },
+    {
+      "index": 184,
+      "id": "1745",
+      "title": "multiplex-tissue-microarray-analysis/main"
+    },
+    {
+      "index": 185,
+      "id": "517",
+      "title": "VVV2_align_SE"
+    },
+    {
+      "index": 186,
+      "id": "518",
+      "title": "VVV2_align_PE"
+    },
+    {
+      "index": 187,
+      "id": "1390",
+      "title": "Assembly of metagenomic sequencing data"
+    },
+    {
+      "index": 188,
+      "id": "1724",
+      "title": "Intro_To_RNN_v1_0_10_0"
+    },
+    {
+      "index": 189,
+      "id": "1723",
+      "title": "Taxonomic Analysis of eDNA"
+    },
+    {
+      "index": 190,
+      "id": "1722",
+      "title": "Age Prediction RNA-Seq"
+    },
+    {
+      "index": 191,
+      "id": "1721",
+      "title": "Age Prediction DNA Methylation"
+    },
+    {
+      "index": 192,
+      "id": "1720",
+      "title": "Machine Learning"
+    },
+    {
+      "index": 193,
+      "id": "1719",
+      "title": "Workflow Constructed From History 'IWTomics Workflow'"
+    },
+    {
+      "index": 194,
+      "id": "1716",
+      "title": "trinity NG"
+    },
+    {
+      "index": 195,
+      "id": "1712",
+      "title": "NDVI with OpenEO"
+    },
+    {
+      "index": 196,
+      "id": "1710",
+      "title": "Abundance Index \"stacked\" Visualization Creation"
+    },
+    {
+      "index": 197,
+      "id": "1709",
+      "title": "Visualization Of RNA-Seq Results With Volcano Plot"
+    },
+    {
+      "index": 198,
+      "id": "1708",
+      "title": "Workflow constructed from history 'Computer assignment RNA seq analysis and visualisation -BMW2 - attempt 3'"
+    },
+    {
+      "index": 199,
+      "id": "1707",
+      "title": "Regional GAM Workflow"
+    },
+    {
+      "index": 200,
+      "id": "1705",
+      "title": "Phenology \"stacked\" Visualization Creation"
+    },
+    {
+      "index": 201,
+      "id": "1706",
+      "title": "Tutorial CLIPseq Explorer Demultiplexed PEAKachu eCLIP Hg38"
+    },
+    {
+      "index": 202,
+      "id": "1704",
+      "title": "Tutorial regionalGAM Complete Multispecies"
+    },
+    {
+      "index": 203,
+      "id": "1701",
+      "title": "MD NAMD"
+    },
+    {
+      "index": 204,
+      "id": "1702",
+      "title": "Workflow constructed from history 'Tuto Obitools'"
+    },
+    {
+      "index": 205,
+      "id": "1700",
+      "title": "NAMD MD From CHARMM GUI"
+    },
+    {
+      "index": 206,
+      "id": "1699",
+      "title": "RNA Seq Genes To Pathways (imported from uploaded file)"
+    },
+    {
+      "index": 207,
+      "id": "1697",
+      "title": "Simple Analysis"
+    },
+    {
+      "index": 208,
+      "id": "1695",
+      "title": "QC report"
+    },
+    {
+      "index": 209,
+      "id": "1696",
+      "title": "Compute and analyze biodiversity metrics with PAMPA toolsuite"
+    },
+    {
+      "index": 210,
+      "id": "1694",
+      "title": "Analysis using MDAnalysis"
+    },
+    {
+      "index": 211,
+      "id": "1693",
+      "title": "Workflow 'Biodiversity data exploration tuto'"
+    },
+    {
+      "index": 212,
+      "id": "1692",
+      "title": "RNA Seq Reads To Counts"
+    },
+    {
+      "index": 213,
+      "id": "1691",
+      "title": "Zauberkugel"
+    },
+    {
+      "index": 214,
+      "id": "1689",
+      "title": "Workflow constructed from history 'Hsp90-MDAnalysis'"
+    },
+    {
+      "index": 215,
+      "id": "1688",
+      "title": "GTN_differential_isoform_expression"
+    },
+    {
+      "index": 216,
+      "id": "1686",
+      "title": "MD protein-ligand workflow (from PDB structure)"
+    },
+    {
+      "index": 217,
+      "id": "1687",
+      "title": "Species Distribution Modeling With Wallace From GBIF - Training Material"
+    },
+    {
+      "index": 218,
+      "id": "1685",
+      "title": "De novo transcriptome reconstruction with RNA-Seq"
+    },
+    {
+      "index": 219,
+      "id": "1684",
+      "title": "mRNA-Seq BY-COVID Pipeline: Analysis"
+    },
+    {
+      "index": 220,
+      "id": "1683",
+      "title": "Genetic Map Rad Seq Workflow"
+    },
+    {
+      "index": 221,
+      "id": "1682",
+      "title": "Mapping And Molecular Identification Of Phenotype Causing Mutations"
+    },
+    {
+      "index": 222,
+      "id": "1681",
+      "title": "RNA-RNA interactome data analysis - chira v1.4.3"
+    },
+    {
+      "index": 223,
+      "id": "1680",
+      "title": "Ecoregionalization workflow"
+    },
+    {
+      "index": 224,
+      "id": "1679",
+      "title": "BY-COVID: Data Download"
+    },
+    {
+      "index": 225,
+      "id": "1678",
+      "title": "Identification of somatic and germline variants from tumor and normal sample pairs tutorial"
+    },
+    {
+      "index": 226,
+      "id": "1677",
+      "title": "Workflow Constructed From History 'Heinz Workflow Trial Sep 11'"
+    },
+    {
+      "index": 227,
+      "id": "1676",
+      "title": "sRNA Seq Step 2: Salmon And DESeq2"
+    },
+    {
+      "index": 228,
+      "id": "1675",
+      "title": "mRNA-Seq BY-COVID Pipeline: Counts"
+    },
+    {
+      "index": 229,
+      "id": "1673",
+      "title": "sRNA Seq Step 1: Read Pre Processing And Removal Of Artifacts (no Grooming)"
+    },
+    {
+      "index": 230,
+      "id": "1672",
+      "title": "Exome Seq Training Pre-Mapped W Cached Ref"
+    },
+    {
+      "index": 231,
+      "id": "1671",
+      "title": "Blockclust 1.1.0 Clustering"
+    },
+    {
+      "index": 232,
+      "id": "1670",
+      "title": "GBIF data Quality check and filtering workflow Feb-2020"
+    },
+    {
+      "index": 233,
+      "id": "1668",
+      "title": "Exome Seq Training Full W Cached Ref"
+    },
+    {
+      "index": 234,
+      "id": "1665",
+      "title": "Workflow Constructed From History 'STACKS RAD: Population Genomics With Reference Genome'"
+    },
+    {
+      "index": 235,
+      "id": "1666",
+      "title": "de novo Rad Seq"
+    },
+    {
+      "index": 236,
+      "id": "1667",
+      "title": "GO Enrichment Workflow"
+    },
+    {
+      "index": 237,
+      "id": "1664",
+      "title": "Du Novo GTN Tutorial - Make Consensus Sequences"
+    },
+    {
+      "index": 238,
+      "id": "1662",
+      "title": "Ref Based Rad Seq"
+    },
+    {
+      "index": 239,
+      "id": "1660",
+      "title": "Du Novo GTN Tutorial - Variant Calling"
+    },
+    {
+      "index": 240,
+      "id": "1659",
+      "title": "Calling variants in non-diploid systems"
+    },
+    {
+      "index": 241,
+      "id": "1657",
+      "title": "GTN - Sequence Analyses - Mapping - Jbrowse (imported from uploaded file)"
+    },
+    {
+      "index": 242,
+      "id": "1658",
+      "title": "Virtual screening of the SARS-CoV-2 main protease with rDock and pose scoring"
+    },
+    {
+      "index": 243,
+      "id": "1656",
+      "title": "preparing genomic data for phylogeny recostruction (GTN)"
+    },
+    {
+      "index": 244,
+      "id": "1655",
+      "title": "diploid"
+    },
+    {
+      "index": 245,
+      "id": "1652",
+      "title": "Xarray_Map_Plotting_Workflow"
+    },
+    {
+      "index": 246,
+      "id": "1653",
+      "title": "GTN - Sequence Analyses - Removal of human reads from SARS-CoV-2 sequencing data"
+    },
+    {
+      "index": 247,
+      "id": "1654",
+      "title": "Data management in Medicinal Chemistry workflow"
+    },
+    {
+      "index": 248,
+      "id": "1651",
+      "title": "Somatic-Variant-Discovery-from-WES-Data-Using-Control-FREEC"
+    },
+    {
+      "index": 249,
+      "id": "1650",
+      "title": "Identification and Evolutionary Analysis of Transcription-Associated Proteins"
+    },
+    {
+      "index": 250,
+      "id": "1649",
+      "title": "CTB Workflow"
+    },
+    {
+      "index": 251,
+      "id": "1645",
+      "title": "GROMACS Training Workflow"
+    },
+    {
+      "index": 252,
+      "id": "1646",
+      "title": "Genome Assembly Quality Control"
+    },
+    {
+      "index": 253,
+      "id": "1644",
+      "title": "Quality and contamination control in bacterial isolate using Illumina MiSeq Data"
+    },
+    {
+      "index": 254,
+      "id": "1642",
+      "title": "Simple COVID-19 - PE Variation"
+    },
+    {
+      "index": 255,
+      "id": "1643",
+      "title": "Intro_To_CNN_v1.0.11.0"
+    },
+    {
+      "index": 256,
+      "id": "1641",
+      "title": "Post-assembly workflow"
+    },
+    {
+      "index": 257,
+      "id": "1640",
+      "title": "GTN - Sequence Analyses - Quality Control (imported from uploaded file)"
+    },
+    {
+      "index": 258,
+      "id": "1638",
+      "title": "Ecoli Comparison"
+    },
+    {
+      "index": 259,
+      "id": "1639",
+      "title": "Microbial Variant Calling"
+    },
+    {
+      "index": 260,
+      "id": "1636",
+      "title": "Trio Analysis Tutorial"
+    },
+    {
+      "index": 261,
+      "id": "1634",
+      "title": "Metagenomics assembly tutorial workflow"
+    },
+    {
+      "index": 262,
+      "id": "1635",
+      "title": "Training Sanger sequences CHD8"
+    },
+    {
+      "index": 263,
+      "id": "1632",
+      "title": "pox-virus-tiled-amplicon-ref-masking"
+    },
+    {
+      "index": 264,
+      "id": "1630",
+      "title": "Sanger1 : From AB1 to aligned consensus and primers fasta + BLAST"
+    },
+    {
+      "index": 265,
+      "id": "1631",
+      "title": "workflow-generate-dataset-for-assembly-tutorial"
+    },
+    {
+      "index": 266,
+      "id": "1629",
+      "title": "MakeAFakeInput"
+    },
+    {
+      "index": 267,
+      "id": "1628",
+      "title": "Workflow to detect SNV from Illumina sequenced baculovirus isolates"
+    },
+    {
+      "index": 268,
+      "id": "1627",
+      "title": "Primer design of a virus family (imported from uploaded file)"
+    },
+    {
+      "index": 269,
+      "id": "1625",
+      "title": "Retrieve climate data from Copernicus"
+    },
+    {
+      "index": 270,
+      "id": "1626",
+      "title": "Debruijn Graph"
+    },
+    {
+      "index": 271,
+      "id": "1624",
+      "title": "Infinium Human Methylation BeadChip"
+    },
+    {
+      "index": 272,
+      "id": "1622",
+      "title": "Intro to Genome Assembly"
+    },
+    {
+      "index": 273,
+      "id": "1621",
+      "title": "Genome Assembly using PacBio data"
+    },
+    {
+      "index": 274,
+      "id": "1620",
+      "title": "Identification Of The Binding Sites Of The Estrogen Receptor - Chip Seq"
+    },
+    {
+      "index": 275,
+      "id": "1619",
+      "title": "Identification Of The Binding Sites Of The Estrogen Receptor - Qc Mapping"
+    },
+    {
+      "index": 276,
+      "id": "1618",
+      "title": "fruit_360"
+    },
+    {
+      "index": 277,
+      "id": "1616",
+      "title": "assembly_with_preprocessing_and_sra_download"
+    },
+    {
+      "index": 278,
+      "id": "1617",
+      "title": "Chloroplast-genome-assembly-and-annotation"
+    },
+    {
+      "index": 279,
+      "id": "1614",
+      "title": "Ludwig - Image recognition model - MNIST"
+    },
+    {
+      "index": 280,
+      "id": "1612",
+      "title": "assembly_with_preprocessing"
+    },
+    {
+      "index": 281,
+      "id": "1611",
+      "title": "Combined workflows for large genome assembly - upgraded"
+    },
+    {
+      "index": 282,
+      "id": "1610",
+      "title": "Galaxy Workflow Galaxy Hi C"
+    },
+    {
+      "index": 283,
+      "id": "1609",
+      "title": "Clustering in Machine Learning"
+    },
+    {
+      "index": 284,
+      "id": "1608",
+      "title": "kmer counting - meryl - upgraded"
+    },
+    {
+      "index": 285,
+      "id": "1607",
+      "title": "VGP assembly: training workflow"
+    },
+    {
+      "index": 286,
+      "id": "1606",
+      "title": "Identification of the binding sites of the T-cell acute lymphocytic leukemia protein 1 (TAL1)"
+    },
+    {
+      "index": 287,
+      "id": "1605",
+      "title": "papaa@0.1.9_PI3K_OG_model_tutorial"
+    },
+    {
+      "index": 288,
+      "id": "1604",
+      "title": "Racon polish with Illumina reads (R1 only), x2 - upgraded"
+    },
+    {
+      "index": 289,
+      "id": "1603",
+      "title": "Simtext training workflow"
+    },
+    {
+      "index": 290,
+      "id": "1601",
+      "title": "GTN Tutorial: Data manipulation Olympics - all steps and exercises"
+    },
+    {
+      "index": 291,
+      "id": "1600",
+      "title": "Ludwig - Image recognition model - MNIST"
+    },
+    {
+      "index": 292,
+      "id": "1599",
+      "title": "Racon polish with long reads, x4 - upgraded"
+    },
+    {
+      "index": 293,
+      "id": "1598",
+      "title": "Unicycler training"
+    },
+    {
+      "index": 294,
+      "id": "1597",
+      "title": "End-to-end EI+ mass spectra prediction workflow using QCxMS"
+    },
+    {
+      "index": 295,
+      "id": "1596",
+      "title": "Regression GradientBoosting"
+    },
+    {
+      "index": 296,
+      "id": "1594",
+      "title": "Assembly-decontamination-VGP9"
+    },
+    {
+      "index": 297,
+      "id": "1595",
+      "title": "Assembly with Flye - upgraded"
+    },
+    {
+      "index": 298,
+      "id": "1593",
+      "title": "MSI Workflow: spatial distribution"
+    },
+    {
+      "index": 299,
+      "id": "1592",
+      "title": "Classification LSVC"
+    },
+    {
+      "index": 300,
+      "id": "1591",
+      "title": "Molecular formula assignment and recalibration with MFAssignR package."
+    },
+    {
+      "index": 301,
+      "id": "1590",
+      "title": "Data management in Medicinal Chemistry workflow"
+    },
+    {
+      "index": 302,
+      "id": "1589",
+      "title": "Trim and filter reads - fastp - upgraded"
+    },
+    {
+      "index": 303,
+      "id": "1587",
+      "title": "MSI Finding Diff Analytes"
+    },
+    {
+      "index": 304,
+      "id": "1588",
+      "title": "ml_classification"
+    },
+    {
+      "index": 305,
+      "id": "1585",
+      "title": "Data QC - upgraded"
+    },
+    {
+      "index": 306,
+      "id": "1584",
+      "title": "Workflow Constructed From History 'imported: testpourGCC'"
+    },
+    {
+      "index": 307,
+      "id": "1583",
+      "title": "Intro_To_FNN_v1_0_10_0"
+    },
+    {
+      "index": 308,
+      "id": "1581",
+      "title": "RetroSynthesis"
+    },
+    {
+      "index": 309,
+      "id": "1582",
+      "title": "GC MS using XCMS"
+    },
+    {
+      "index": 310,
+      "id": "1580",
+      "title": "Assess genome quality - upgraded"
+    },
+    {
+      "index": 311,
+      "id": "1578",
+      "title": "Assembly polishing - upgraded"
+    },
+    {
+      "index": 312,
+      "id": "1576",
+      "title": "Genetic Design (BASIC Assembly)"
+    },
+    {
+      "index": 313,
+      "id": "1577",
+      "title": "Mtb phylogeny"
+    },
+    {
+      "index": 314,
+      "id": "1575",
+      "title": "Music Stage 2 - Inferring cellular proportions"
+    },
+    {
+      "index": 315,
+      "id": "1574",
+      "title": "scRNA Plant Analysis"
+    },
+    {
+      "index": 316,
+      "id": "1573",
+      "title": "From Fastqs to VCFs and BAMs"
+    },
+    {
+      "index": 317,
+      "id": "1572",
+      "title": "Pathway Analysis"
+    },
+    {
+      "index": 318,
+      "id": "1571",
+      "title": "Music Stage 3 - Preprocess Visualisations"
+    },
+    {
+      "index": 319,
+      "id": "1570",
+      "title": "Seurat Filter, Plot and Exlore tutorial"
+    },
+    {
+      "index": 320,
+      "id": "1569",
+      "title": "From VCFs to SNP distance matrix"
+    },
+    {
+      "index": 321,
+      "id": "1567",
+      "title": "Music Stage 4 - Compute metrics"
+    },
+    {
+      "index": 322,
+      "id": "1566",
+      "title": "Workflow Methylation Seq"
+    },
+    {
+      "index": 323,
+      "id": "1565",
+      "title": "NCBI to Anndata"
+    },
+    {
+      "index": 324,
+      "id": "1564",
+      "title": "From BAMs to drug resistance prediction with TB-profiler"
+    },
+    {
+      "index": 325,
+      "id": "1563",
+      "title": "Music Stage 1 - Create pseudobulk and actual proportions"
+    },
+    {
+      "index": 326,
+      "id": "1562",
+      "title": "CUT&amp;RUN"
+    },
+    {
+      "index": 327,
+      "id": "1560",
+      "title": "Clustering 3k PBMCs with Seurat - Workflow"
+    },
+    {
+      "index": 328,
+      "id": "1561",
+      "title": "Multisample Batch Correction with SnapATAC2 and Harmony"
+    },
+    {
+      "index": 329,
+      "id": "1559",
+      "title": "Tree Building (imported from uploaded file)"
+    },
+    {
+      "index": 330,
+      "id": "1558",
+      "title": "Gene Cluster Product Similarity Search"
+    },
+    {
+      "index": 331,
+      "id": "1557",
+      "title": "MuSiC: Deconvolution"
+    },
+    {
+      "index": 332,
+      "id": "1556",
+      "title": "Pseudobulk with decoupler and edgeR tutorial workflow"
+    },
+    {
+      "index": 333,
+      "id": "1555",
+      "title": "Cluster 3k PBMCs with Seurat - Workflow - SCTransform Version"
+    },
+    {
+      "index": 334,
+      "id": "1553",
+      "title": "Music: Pre-grouping cell types"
+    },
+    {
+      "index": 335,
+      "id": "1552",
+      "title": "MuSiC-Deconvolution: Data generation | sc | metadata"
+    },
+    {
+      "index": 336,
+      "id": "1550",
+      "title": "Cell Cycle Regression Workflow"
+    },
+    {
+      "index": 337,
+      "id": "1551",
+      "title": "Workflow - Standard processing of 10X single cell ATAC-seq data with SnapATAC2"
+    },
+    {
+      "index": 338,
+      "id": "1549",
+      "title": "Genome annotation with Maker (short)"
+    },
+    {
+      "index": 339,
+      "id": "1548",
+      "title": "MuSiC-Deconvolution: Data generation | sc | matrix + ESet"
+    },
+    {
+      "index": 340,
+      "id": "1546",
+      "title": "GTN - Preprocessing of 10X scRNA-seq data"
+    },
+    {
+      "index": 341,
+      "id": "1547",
+      "title": "RaceID Workflow"
+    },
+    {
+      "index": 342,
+      "id": "1545",
+      "title": "CHROMEISTER chromosome comparison"
+    },
+    {
+      "index": 343,
+      "id": "1544",
+      "title": "Galaxy Intro Strands 2"
+    },
+    {
+      "index": 344,
+      "id": "1543",
+      "title": "LOCKED | Combining single cell datasets after pre-processing"
+    },
+    {
+      "index": 345,
+      "id": "1541",
+      "title": "GECKO pairwise comparison"
+    },
+    {
+      "index": 346,
+      "id": "1542",
+      "title": "MuSiC-Deconvolution: Data generation | bulk | ESet"
+    },
+    {
+      "index": 347,
+      "id": "1540",
+      "title": "NGS_tutorial"
+    },
+    {
+      "index": 348,
+      "id": "1539",
+      "title": "Combining datasets after pre-processing"
+    },
+    {
+      "index": 349,
+      "id": "1537",
+      "title": "LOCKED | Generating a single cell matrix using Alevin"
+    },
+    {
+      "index": 350,
+      "id": "1536",
+      "title": "GTN Training: Galaxy 101 For Everyone"
+    },
+    {
+      "index": 351,
+      "id": "1535",
+      "title": "EBI SCXA to AnnData (Scanpy) or Seurat Object"
+    },
+    {
+      "index": 352,
+      "id": "1534",
+      "title": "Workflow constructed from history 'CRISPR tutorial Kenji'"
+    },
+    {
+      "index": 353,
+      "id": "1533",
+      "title": "Generating a single cell matrix using Alevin"
+    },
+    {
+      "index": 354,
+      "id": "1532",
+      "title": "Workflow constructed from Tutorial 'Introduction to Image Analysis using Galaxy'"
+    },
+    {
+      "index": 355,
+      "id": "1531",
+      "title": "AnnData to Cell Data Set (CDS) conversion"
+    },
+    {
+      "index": 356,
+      "id": "1529",
+      "title": "Inferring Trajectories with Scanpy Tutorial Workflow"
+    },
+    {
+      "index": 357,
+      "id": "1530",
+      "title": "Essential genes detection with Transposon insertion sequencing"
+    },
+    {
+      "index": 358,
+      "id": "1528",
+      "title": "2025_2D_spot_detection"
+    },
+    {
+      "index": 359,
+      "id": "1527",
+      "title": "AnnData to Seurat conversion"
+    },
+    {
+      "index": 360,
+      "id": "1526",
+      "title": "Image prediction with BioImage.IO model (imported from uploaded file)"
+    },
+    {
+      "index": 361,
+      "id": "1524",
+      "title": "Trajectory analysis using Monocle3 - full tutorial workflow"
+    },
+    {
+      "index": 362,
+      "id": "1523",
+      "title": "AnnData to SingleCellExperiment (SCE) conversion"
+    },
+    {
+      "index": 363,
+      "id": "1522",
+      "title": "Voronoi segmentation"
+    },
+    {
+      "index": 364,
+      "id": "1520",
+      "title": "AnnData object to Monocle input files"
+    },
+    {
+      "index": 365,
+      "id": "1519",
+      "title": "Clustering 3k PBMC with Scanpy"
+    },
+    {
+      "index": 366,
+      "id": "1518",
+      "title": "Comparative gene analysis"
+    },
+    {
+      "index": 367,
+      "id": "1517",
+      "title": "Segmentation_Values_Testing"
+    },
+    {
+      "index": 368,
+      "id": "1516",
+      "title": "Monocle3 workflow"
+    },
+    {
+      "index": 369,
+      "id": "1515",
+      "title": "GO Enrichment Workflow"
+    },
+    {
+      "index": 370,
+      "id": "1513",
+      "title": "Bacterial Genome Annotation"
+    },
+    {
+      "index": 371,
+      "id": "1514",
+      "title": "GTN_Exemplar_002_TMA_workflow_Feb2025"
+    },
+    {
+      "index": 372,
+      "id": "1512",
+      "title": "analyze_screen"
+    },
+    {
+      "index": 373,
+      "id": "1510",
+      "title": "Scanpy Parameter Iterator workflow full (imported from URL)"
+    },
+    {
+      "index": 374,
+      "id": "1511",
+      "title": "Single-cell QC with scater"
+    },
+    {
+      "index": 375,
+      "id": "1508",
+      "title": "feature_extraction"
+    },
+    {
+      "index": 376,
+      "id": "1507",
+      "title": "Understanding Barcodes"
+    },
+    {
+      "index": 377,
+      "id": "1504",
+      "title": "Genome annotation with Maker"
+    },
+    {
+      "index": 378,
+      "id": "1505",
+      "title": "CP_pipeline_IDR_training"
+    },
+    {
+      "index": 379,
+      "id": "1503",
+      "title": "CP_object_tracking_example"
+    },
+    {
+      "index": 380,
+      "id": "1501",
+      "title": "Filter plot and explore single-cell RNA-seq data with Scanpy (imported from uploaded file)"
+    },
+    {
+      "index": 381,
+      "id": "1499",
+      "title": "Capturing mitoflashes"
+    },
+    {
+      "index": 382,
+      "id": "1498",
+      "title": "MuSiC-Deconvolution: Compare"
+    },
+    {
+      "index": 383,
+      "id": "1497",
+      "title": "Genome Annotation with Prokka"
+    },
+    {
+      "index": 384,
+      "id": "1495",
+      "title": "Gene-based Pathogen Identification"
+    },
+    {
+      "index": 385,
+      "id": "1496",
+      "title": "Filter, Plot and Explore Single-cell RNA-seq Data updated"
+    },
+    {
+      "index": 386,
+      "id": "1494",
+      "title": "CelSeq2: Single Batch (mm10)"
+    },
+    {
+      "index": 387,
+      "id": "1493",
+      "title": "Find exons with the highest number of features"
+    },
+    {
+      "index": 388,
+      "id": "1491",
+      "title": "CelSeq2: Multi Batch (mm10)"
+    },
+    {
+      "index": 389,
+      "id": "1490",
+      "title": "CS3_Filter, Plot and Explore Single-cell RNA-seq Data"
+    },
+    {
+      "index": 390,
+      "id": "1489",
+      "title": "GTN Training: Galaxy 101 For Everyone"
+    },
+    {
+      "index": 391,
+      "id": "1485",
+      "title": "scRNA Plant Analysis"
+    },
+    {
+      "index": 392,
+      "id": "1486",
+      "title": "GTN Tutorial: Data manipulation Olympics - all steps and exercises"
+    },
+    {
+      "index": 393,
+      "id": "1484",
+      "title": "Long non-coding RNAs (lncRNAs) annotation with FEELnc"
+    },
+    {
+      "index": 394,
+      "id": "1483",
+      "title": "Taxonomy Profiling and Visualization with Krona"
+    },
+    {
+      "index": 395,
+      "id": "1482",
+      "title": "WF5_Data_Interpretation_Worklow"
+    },
+    {
+      "index": 396,
+      "id": "1481",
+      "title": "Galaxy Intro Short"
+    },
+    {
+      "index": 397,
+      "id": "1480",
+      "title": "workflow-generate-dataset-for-assembly-tutorial"
+    },
+    {
+      "index": 398,
+      "id": "1479",
+      "title": "Allele-based Pathogen Identification"
+    },
+    {
+      "index": 399,
+      "id": "1478",
+      "title": "Galaxy Introduction Peaks2Genes - Part 1"
+    },
+    {
+      "index": 400,
+      "id": "1477",
+      "title": "Copy Of GTN Training - Antibiotic Resistance Detection"
+    },
+    {
+      "index": 401,
+      "id": "1476",
+      "title": "Amplicon Tutorial"
+    },
+    {
+      "index": 402,
+      "id": "1475",
+      "title": "Galaxy Intro Strands"
+    },
+    {
+      "index": 403,
+      "id": "1474",
+      "title": "WF1_Database_Generation_Workflow"
+    },
+    {
+      "index": 404,
+      "id": "1473",
+      "title": "Training: 16S rRNA Analysis with Nanopore Sequencing Reads"
+    },
+    {
+      "index": 405,
+      "id": "1472",
+      "title": "WGS Part In \"Analyses Of Metagenomics Data - The Global Picture\""
+    },
+    {
+      "index": 406,
+      "id": "1471",
+      "title": "EncyclopeDIA-GTN"
+    },
+    {
+      "index": 407,
+      "id": "1468",
+      "title": "WF4_Quantitation_Workflow"
+    },
+    {
+      "index": 408,
+      "id": "1469",
+      "title": "Query a metaplasmidome database to identify and annotate plasmids in metagenomes"
+    },
+    {
+      "index": 409,
+      "id": "1467",
+      "title": "GTN Proteogemics3 Novel Peptide Analysis"
+    },
+    {
+      "index": 410,
+      "id": "1465",
+      "title": "Training: 16S rRNA Sequencing With Mothur: Main Tutorial"
+    },
+    {
+      "index": 411,
+      "id": "1464",
+      "title": "WF3_VERIFICATION_WORKFLOW"
+    },
+    {
+      "index": 412,
+      "id": "1463",
+      "title": "DIA_Analysis_OSW"
+    },
+    {
+      "index": 413,
+      "id": "1462",
+      "title": "DIA_analysis_MSstats"
+    },
+    {
+      "index": 414,
+      "id": "1461",
+      "title": "WF1_Database_Generation_Workflow"
+    },
+    {
+      "index": 415,
+      "id": "1460",
+      "title": "Workflow for Identifying MF from ITS2 sequencing using LotuS2 - tutorial example run'"
+    },
+    {
+      "index": 416,
+      "id": "1459",
+      "title": "metaquantome-taxonomy-workflow"
+    },
+    {
+      "index": 417,
+      "id": "1458",
+      "title": "DIA_analysis_MSstats"
+    },
+    {
+      "index": 418,
+      "id": "1457",
+      "title": "GigaScience_Peptide_Annotation_demonstration_STS26T_neoantigen_candidates_workflow"
+    },
+    {
+      "index": 419,
+      "id": "1455",
+      "title": "MS Imaging Loading Exploring Data"
+    },
+    {
+      "index": 420,
+      "id": "1454",
+      "title": "PeptideML"
+    },
+    {
+      "index": 421,
+      "id": "1453",
+      "title": "metaquantome-function-worklow"
+    },
+    {
+      "index": 422,
+      "id": "1450",
+      "title": "metaQuantome_datacreation_workflow"
+    },
+    {
+      "index": 423,
+      "id": "1452",
+      "title": "Peptide And Protein ID Via OMS Using Two Search Engines"
+    },
+    {
+      "index": 424,
+      "id": "1449",
+      "title": "Proteomics: Peptide and Protein Quantification via stable istobe labeling"
+    },
+    {
+      "index": 425,
+      "id": "1448",
+      "title": "Proteomics: MaxQuant workflow"
+    },
+    {
+      "index": 426,
+      "id": "1446",
+      "title": "Proteomics: Peptide and Protein ID using OpenMS"
+    },
+    {
+      "index": 427,
+      "id": "1442",
+      "title": "Gigascience_Fusions_demonstration_STS26T-Gent_Workflow"
+    },
+    {
+      "index": 428,
+      "id": "1441",
+      "title": "Climate 101"
+    },
+    {
+      "index": 429,
+      "id": "1439",
+      "title": "Identification of the micro-organisms in a beer using Nanopore sequencing"
+    },
+    {
+      "index": 430,
+      "id": "1438",
+      "title": "Proteomics: database handling including mycoplasma"
+    },
+    {
+      "index": 431,
+      "id": "1437",
+      "title": "Gigascience_Indels_SAV_non-reference_demonstration_STS26T-Gent_Workflow"
+    },
+    {
+      "index": 432,
+      "id": "1435",
+      "title": "WF2_Discovery-Workflow"
+    },
+    {
+      "index": 433,
+      "id": "1434",
+      "title": "Proteomics: database handling"
+    },
+    {
+      "index": 434,
+      "id": "1433",
+      "title": "WF5_Data_Interpretation_Worklow"
+    },
+    {
+      "index": 435,
+      "id": "1432",
+      "title": "GTN 'Pangeo 101 for everyone - Xarray'"
+    },
+    {
+      "index": 436,
+      "id": "1431",
+      "title": "Calculating diversity from microbiome taxonomic data"
+    },
+    {
+      "index": 437,
+      "id": "1430",
+      "title": "GigaScience-RNAseq-Optitype-seq2HLA-to-IEDB-alleles"
+    },
+    {
+      "index": 438,
+      "id": "1428",
+      "title": "Workflow 3: Classification [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 439,
+      "id": "1427",
+      "title": "CLM-FATES_ ALP1 simulation (5 years)"
+    },
+    {
+      "index": 440,
+      "id": "1426",
+      "title": "Proteomics: MaxQuant and MSstats for the analysis of label-free data"
+    },
+    {
+      "index": 441,
+      "id": "1425",
+      "title": "WF3_VERIFICATION_WORKFLOW"
+    },
+    {
+      "index": 442,
+      "id": "1424",
+      "title": "Tails Triple Dimethyl OpenMS2.1"
+    },
+    {
+      "index": 443,
+      "id": "1422",
+      "title": "Workflow 1: Quality Control [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 444,
+      "id": "1423",
+      "title": "Pangeo Jupyter Notebook"
+    },
+    {
+      "index": 445,
+      "id": "1421",
+      "title": "DIA_lib_OSW"
+    },
+    {
+      "index": 446,
+      "id": "1420",
+      "title": "WF4_Quantitation_Workflow"
+    },
+    {
+      "index": 447,
+      "id": "1419",
+      "title": "Circos for E. Coli"
+    },
+    {
+      "index": 448,
+      "id": "1418",
+      "title": "Workflow7: Beta Diversity [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 449,
+      "id": "1417",
+      "title": "Secreted Proteins Via GO Annotation And WoLF PSORT For shCTSB Paper"
+    },
+    {
+      "index": 450,
+      "id": "1416",
+      "title": "GigaScience_PepQuery2_demonstration_STS26T_neoantigen_candidates_workflow"
+    },
+    {
+      "index": 451,
+      "id": "1414",
+      "title": "'Proteome Annotation'"
+    },
+    {
+      "index": 452,
+      "id": "1415",
+      "title": "Circos: Nature workflow"
+    },
+    {
+      "index": 453,
+      "id": "1413",
+      "title": "Circos tutorial"
+    },
+    {
+      "index": 454,
+      "id": "1412",
+      "title": "Workflow 6: Alpha Diversity [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 455,
+      "id": "1410",
+      "title": "GigaScience_Database_merge_FragPipe_STS26T_demonstration"
+    },
+    {
+      "index": 456,
+      "id": "1411",
+      "title": "ProteoRE ProteomeAnnotation Tutorial (release 2.0)"
+    },
+    {
+      "index": 457,
+      "id": "1409",
+      "title": "GTN_ENA_upload_workflow"
+    },
+    {
+      "index": 458,
+      "id": "1408",
+      "title": "Workflow 4: Mock OTU Clustering [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 459,
+      "id": "1407",
+      "title": "Proteogenomics 1: Database Creation"
+    },
+    {
+      "index": 460,
+      "id": "1406",
+      "title": "GigaScience-IEDB-PepQuery-Neoantigen"
+    },
+    {
+      "index": 461,
+      "id": "1405",
+      "title": "GTN Training: Workflow Reports - Galaxy 101 For Everyone"
+    },
+    {
+      "index": 462,
+      "id": "1404",
+      "title": "Workflow 5: OTU Clustering [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 463,
+      "id": "1403",
+      "title": "'Biomarkers4Paris' Workflow"
+    },
+    {
+      "index": 464,
+      "id": "1402",
+      "title": "GTN Training: Workflow Reports"
+    },
+    {
+      "index": 465,
+      "id": "1401",
+      "title": "MaxQuant MSstatsTMT Training"
+    },
+    {
+      "index": 466,
+      "id": "1400",
+      "title": "Workflow 2: Data Cleaning And Chimera Removal [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 467,
+      "id": "1399",
+      "title": "ProteinID SG PS Tutorial WF datasetCollection"
+    },
+    {
+      "index": 468,
+      "id": "1398",
+      "title": "Intermine import/export"
+    },
+    {
+      "index": 469,
+      "id": "1397",
+      "title": "Select First N Lines"
+    },
+    {
+      "index": 470,
+      "id": "1393",
+      "title": "Subworkflow"
+    },
+    {
+      "index": 471,
+      "id": "1394",
+      "title": "Peptide And Protein ID Tutorial"
+    },
+    {
+      "index": 472,
+      "id": "1396",
+      "title": "WF2_Discovery-Workflow"
+    },
+    {
+      "index": 473,
+      "id": "1392",
+      "title": "Tutorial workflow"
+    },
+    {
+      "index": 474,
+      "id": "1389",
+      "title": "Copy of PeptideDataAnalysis (imported from uploaded file)"
+    },
+    {
+      "index": 475,
+      "id": "1391",
+      "title": "vcf2lineage"
+    },
+    {
+      "index": 476,
+      "id": "1388",
+      "title": "MultiGSEA"
+    },
+    {
+      "index": 477,
+      "id": "697",
+      "title": "ERGA DataQC ONT v2505 (WF0)"
+    },
+    {
+      "index": 478,
+      "id": "1163",
+      "title": "ERGA Long Reads PriAlt Purge+QC v2505 (WF3)"
+    },
+    {
+      "index": 479,
+      "id": "1164",
+      "title": "ERGA HiC Pri Scaffolding+QC YaHS v2505 (WF4)"
+    },
+    {
+      "index": 480,
+      "id": "1162",
+      "title": "ERGA Long reads-only Assembly+QC Hifiasm v2505 (WF2)"
+    },
+    {
+      "index": 481,
+      "id": "677",
+      "title": "lcms-preprocessing/main"
+    },
+    {
+      "index": 482,
+      "id": "1382",
+      "title": "Annual percentage Change for population in Germany (1950 - 2025)"
+    },
+    {
+      "index": 483,
+      "id": "1355",
+      "title": "Clonal population analysis for TracerX study"
+    },
+    {
+      "index": 484,
+      "id": "680",
+      "title": "gcms-metams/main"
+    },
+    {
+      "index": 485,
+      "id": "1369",
+      "title": "Extended Source"
+    },
+    {
+      "index": 486,
+      "id": "1362",
+      "title": "Subclustering"
+    },
+    {
+      "index": 487,
+      "id": "631",
+      "title": "kmer-profiling-hifi-trio-VGP2/main"
+    },
+    {
+      "index": 488,
+      "id": "1356",
+      "title": "Import and Analyse from EBI - Universal"
+    },
+    {
+      "index": 489,
+      "id": "1352",
+      "title": "mags-building/main"
+    },
+    {
+      "index": 490,
+      "id": "1351",
+      "title": "mfassignr/main"
+    },
+    {
+      "index": 491,
+      "id": "1350",
+      "title": "qcxms-sdf/main"
+    },
+    {
+      "index": 492,
+      "id": "897",
+      "title": "End-to-end EI+ mass spectra prediction workflow using QCxMS"
+    },
+    {
+      "index": 493,
+      "id": "249",
+      "title": "gromacs-dctmd/main"
+    },
+    {
+      "index": 494,
+      "id": "1337",
+      "title": "tissue-microarray-analysis/main"
+    },
+    {
+      "index": 495,
+      "id": "1327",
+      "title": "hi-c-contact-map-for-assembly-manual-curation/main"
+    },
+    {
+      "index": 496,
+      "id": "1057",
+      "title": "Plot-Nx-Size/main"
+    },
+    {
+      "index": 497,
+      "id": "1063",
+      "title": "allele-based-pathogen-identification/main"
+    },
+    {
+      "index": 498,
+      "id": "641",
+      "title": "Assembly-Hifi-HiC-phasing-VGP4/main"
+    },
+    {
+      "index": 499,
+      "id": "1314",
+      "title": "Galaxy Workflow for CNV Detection with CNVkit and Conversion to Beacon JSON Using cnv-vcf2json"
+    },
+    {
+      "index": 500,
+      "id": "1096",
+      "title": "ERGA-BGE Genome Report ANNOT analyses"
+    },
+    {
+      "index": 501,
+      "id": "1296",
+      "title": "taxonomic-rank-abundance-summary-table/main"
+    },
+    {
+      "index": 502,
+      "id": "1275",
+      "title": "mapseq-to-ampvis2/main"
+    },
+    {
+      "index": 503,
+      "id": "1274",
+      "title": "mgnify-amplicon-pipeline-v5-complete/main"
+    },
+    {
+      "index": 504,
+      "id": "1273",
+      "title": "mgnify-amplicon-pipeline-v5-its/main"
+    },
+    {
+      "index": 505,
+      "id": "1272",
+      "title": "mgnify-amplicon-pipeline-v5-quality-control-paired-end/main"
+    },
+    {
+      "index": 506,
+      "id": "1271",
+      "title": "mgnify-amplicon-pipeline-v5-quality-control-single-end/main"
+    },
+    {
+      "index": 507,
+      "id": "1270",
+      "title": "mgnify-amplicon-pipeline-v5-rrna-prediction/main"
+    },
+    {
+      "index": 508,
+      "id": "1269",
+      "title": "mgnify-amplicon-taxonomic-summary-tables/main"
+    },
+    {
+      "index": 509,
+      "id": "1267",
+      "title": "Source halo"
+    },
+    {
+      "index": 510,
+      "id": "1259",
+      "title": "OMERO Nuclei Cell Counting, Image Import, Annotation and Region of Interests (ROIs) Workflow"
+    },
+    {
+      "index": 511,
+      "id": "1258",
+      "title": "OMERO Image Import, Annotation and Region of Interests (ROIs) Workflow"
+    },
+    {
+      "index": 512,
+      "id": "1256",
+      "title": "scanpy-clustering/main"
+    },
+    {
+      "index": 513,
+      "id": "1225",
+      "title": "clinicalmp-discovery/main"
+    },
+    {
+      "index": 514,
+      "id": "1199",
+      "title": "Taxonomy classification using Kraken2 and Bracken"
+    },
+    {
+      "index": 515,
+      "id": "1103",
+      "title": "ERGA-BGE Genome Report ASM analyses (one-asm WGS Illumina PE + HiC)"
+    },
+    {
+      "index": 516,
+      "id": "1104",
+      "title": "ERGA-BGE Genome Report ASM analyses (one-asm HiFi + HiC)"
+    },
+    {
+      "index": 517,
+      "id": "1219",
+      "title": "clinicalmp-data-interpretation/main"
+    },
+    {
+      "index": 518,
+      "id": "1218",
+      "title": "clinicalmp-verification/main"
+    },
+    {
+      "index": 519,
+      "id": "1216",
+      "title": "clinicalmp-database-generation/main"
+    },
+    {
+      "index": 520,
+      "id": "1209",
+      "title": "Ecoregionalization workflow (Part 2)"
+    },
+    {
+      "index": 521,
+      "id": "1208",
+      "title": "Ecoregionalization workflow (Part 1)"
+    },
+    {
+      "index": 522,
+      "id": "1207",
+      "title": "pseudobulk-worflow-decoupler-edger/main"
+    },
+    {
+      "index": 523,
+      "id": "1201",
+      "title": "rnaseq-de/main"
+    },
+    {
+      "index": 524,
+      "id": "1194",
+      "title": "goseq/main"
+    },
+    {
+      "index": 525,
+      "id": "1189",
+      "title": "AMR-Pathfinder"
+    },
+    {
+      "index": 526,
+      "id": "1190",
+      "title": "haploid-variant-calling-wgs-pe/main"
+    },
+    {
+      "index": 527,
+      "id": "1182",
+      "title": "Ocean's variables 2.0"
+    },
+    {
+      "index": 528,
+      "id": "1181",
+      "title": "Evaluation IA-Biodiv workflow"
+    },
+    {
+      "index": 529,
+      "id": "1177",
+      "title": "clinicalmp-quantitation/main"
+    },
+    {
+      "index": 530,
+      "id": "110",
+      "title": "sars-cov-2-pe-illumina-artic-variant-calling/COVID-19-PE-ARTIC-ILLUMINA"
+    },
+    {
+      "index": 531,
+      "id": "1043",
+      "title": "bacterial-genome-assembly/main"
+    },
+    {
+      "index": 532,
+      "id": "1052",
+      "title": "quality-and-contamination-control/main"
+    },
+    {
+      "index": 533,
+      "id": "407",
+      "title": "Workflow 3: AMR - SeqSero2/SISTR"
+    },
+    {
+      "index": 534,
+      "id": "644",
+      "title": "Workflow 2: Sciensano"
+    },
+    {
+      "index": 535,
+      "id": "470",
+      "title": "Workflow 4: Staramr"
+    },
+    {
+      "index": 536,
+      "id": "634",
+      "title": "Workflow 1: AbritAMR"
+    },
+    {
+      "index": 537,
+      "id": "1114",
+      "title": "Genome assembly workflow for nanopore reads, for TSI"
+    },
+    {
+      "index": 538,
+      "id": "1113",
+      "title": "Full Analyse Argo data"
+    },
+    {
+      "index": 539,
+      "id": "1105",
+      "title": "Marine Omics identifying biosynthetic gene clusters"
+    },
+    {
+      "index": 540,
+      "id": "643",
+      "title": "Scaffolding-Bionano-VGP7/main"
+    },
+    {
+      "index": 541,
+      "id": "1090",
+      "title": "qiime2-III-VI-downsteam/QIIME2-III-V-Phylogeny-Rarefaction-Taxonomic-Analysis"
+    },
+    {
+      "index": 542,
+      "id": "1089",
+      "title": "Differential peak analysis with SnapATAC2"
+    },
+    {
+      "index": 543,
+      "id": "1078",
+      "title": "Multisample Batch Correction with SnapATAC2 and Harmony"
+    },
+    {
+      "index": 544,
+      "id": "1077",
+      "title": "Workflow - Standard processing of 10X single cell ATAC-seq data with SnapATAC2"
+    },
+    {
+      "index": 545,
+      "id": "1062",
+      "title": "gene-based-pathogen-identification/main"
+    },
+    {
+      "index": 546,
+      "id": "1061",
+      "title": "nanopore-pre-processing/main"
+    },
+    {
+      "index": 547,
+      "id": "1060",
+      "title": "pathogen-detection-pathogfair-samples-aggregation-and-visualisation/main"
+    },
+    {
+      "index": 548,
+      "id": "1059",
+      "title": "taxonomy-profiling-and-visualization-with-krona/main"
+    },
+    {
+      "index": 549,
+      "id": "1054",
+      "title": "TSI-Scaffolding-with-HiC (based on VGP-HiC-scaffolding)"
+    },
+    {
+      "index": 550,
+      "id": "875",
+      "title": "Repeat masking - TSI"
+    },
+    {
+      "index": 551,
+      "id": "1051",
+      "title": "brew3r/main"
+    },
+    {
+      "index": 552,
+      "id": "1050",
+      "title": "bacterial_genome_annotation/main"
+    },
+    {
+      "index": 553,
+      "id": "1049",
+      "title": "amr_gene_detection/main"
+    },
+    {
+      "index": 554,
+      "id": "1035",
+      "title": "TB Variant Analysis v1.0"
+    },
+    {
+      "index": 555,
+      "id": "888",
+      "title": "Theoretical fragment substructure generation and in silico mass spectral library high-resolution upcycling workflow"
+    },
+    {
+      "index": 556,
+      "id": "893",
+      "title": "qiime2-I-import/Ia-import-multiplexed-se"
+    },
+    {
+      "index": 557,
+      "id": "892",
+      "title": "qiime2-II-denoising/IIa-denoising-se"
+    },
+    {
+      "index": 558,
+      "id": "647",
+      "title": "scRNAseq Single Sample Processing Cell Ranger"
+    },
+    {
+      "index": 559,
+      "id": "646",
+      "title": "scRNAseq: Count and Load with Cell Ranger"
+    },
+    {
+      "index": 560,
+      "id": "514",
+      "title": "scRNAseq Single Sample Processing Counts Matrix"
+    },
+    {
+      "index": 561,
+      "id": "465",
+      "title": "scRNAseq Single Sample Processing STARSolo"
+    },
+    {
+      "index": 562,
+      "id": "468",
+      "title": "scRNAseq_QCtoBasicProcessing"
+    },
+    {
+      "index": 563,
+      "id": "467",
+      "title": "scRNAseq_CellQC"
+    },
+    {
+      "index": 564,
+      "id": "513",
+      "title": "scRNAseq: Count and Load with starSOLO"
+    },
+    {
+      "index": 565,
+      "id": "512",
+      "title": "scRNAseq: Load counts matrix"
+    },
+    {
+      "index": 566,
+      "id": "879",
+      "title": "Extract transcripts - TSI"
+    },
+    {
+      "index": 567,
+      "id": "878",
+      "title": "Combine transcripts - TSI"
+    },
+    {
+      "index": 568,
+      "id": "877",
+      "title": "Find transcripts - TSI"
+    },
+    {
+      "index": 569,
+      "id": "876",
+      "title": "QC and trimming of RNAseq reads - TSI"
+    },
+    {
+      "index": 570,
+      "id": "831",
+      "title": "SGWB model spectrum"
+    },
+    {
+      "index": 571,
+      "id": "815",
+      "title": "Stochastic Gravitational Wave Backgorund (SGWB) tool"
+    },
+    {
+      "index": 572,
+      "id": "807",
+      "title": "A workflow demonstrating the 'Run interpolation based on IDW' tool"
+    },
+    {
+      "index": 573,
+      "id": "794",
+      "title": "Genome-assessment-post-assembly"
+    },
+    {
+      "index": 574,
+      "id": "790",
+      "title": "dada2/main"
+    },
+    {
+      "index": 575,
+      "id": "789",
+      "title": "ERGA ONT+Illumina Assembly+QC NextDenovo+HyPo v2403 (WF2)"
+    },
+    {
+      "index": 576,
+      "id": "788",
+      "title": "ERGA ONT+Illumina Assembly+QC Flye+HyPo v2403 (WF2)"
+    },
+    {
+      "index": 577,
+      "id": "778",
+      "title": "Galaxy Molecular Structure Checking"
+    },
+    {
+      "index": 578,
+      "id": "771",
+      "title": "fluorescence-nuclei-segmentation-and-counting/main"
+    },
+    {
+      "index": 579,
+      "id": "762",
+      "title": "flavivirushelicase_apo"
+    },
+    {
+      "index": 580,
+      "id": "763",
+      "title": "coronavirushelicase_proteindrugcomplex"
+    },
+    {
+      "index": 581,
+      "id": "764",
+      "title": "coronavirushelicase_apo"
+    },
+    {
+      "index": 582,
+      "id": "761",
+      "title": "flavivirushelicase_proteindrugcomplex"
+    },
+    {
+      "index": 583,
+      "id": "766",
+      "title": "Example Multi-Wavelength Light-Curve Analysis"
+    },
+    {
+      "index": 584,
+      "id": "749",
+      "title": "Refining Genome Annotations with Apollo (prokaryotes)"
+    },
+    {
+      "index": 585,
+      "id": "759",
+      "title": "Visualizing NDVI time-series data with HoloViz"
+    },
+    {
+      "index": 586,
+      "id": "758",
+      "title": "Calculating and visualizing OBIS marine biodiversity indicators"
+    },
+    {
+      "index": 587,
+      "id": "757",
+      "title": "Finding the Muon Stopping Site using PyMuonSuite"
+    },
+    {
+      "index": 588,
+      "id": "756",
+      "title": "Sentinel 5P volcanic data visualization"
+    },
+    {
+      "index": 589,
+      "id": "755",
+      "title": "Functional protein annotation using EggNOG-mapper and InterProScan"
+    },
+    {
+      "index": 590,
+      "id": "754",
+      "title": "Genome annotation with Funannotate"
+    },
+    {
+      "index": 591,
+      "id": "753",
+      "title": "Masking repeats with RepeatMasker"
+    },
+    {
+      "index": 592,
+      "id": "750",
+      "title": "assembly-with-flye/main"
+    },
+    {
+      "index": 593,
+      "id": "715",
+      "title": "velocyto/Velocyto-on10X-from-bundled"
+    },
+    {
+      "index": 594,
+      "id": "702",
+      "title": "ERGA HiC Collapsed Scaffolding+QC YaHS v2311 (WF4)"
+    },
+    {
+      "index": 595,
+      "id": "701",
+      "title": "ERGA ONT+Illumina Collapsed Purge+QC v2311 (WF3)"
+    },
+    {
+      "index": 596,
+      "id": "698",
+      "title": "ERGA Profiling Illumina v2311 (WF1)"
+    },
+    {
+      "index": 597,
+      "id": "606",
+      "title": "ERGA HiFi Hap1Hap2 Purge+QC v2309 (WF3)"
+    },
+    {
+      "index": 598,
+      "id": "689",
+      "title": "mRNA-Seq BY-COVID Pipeline: Analysis"
+    },
+    {
+      "index": 599,
+      "id": "688",
+      "title": "mRNA-Seq BY-COVID Pipeline: Counts"
+    },
+    {
+      "index": 600,
+      "id": "685",
+      "title": "mRNA-Seq BY-COVID Pipeline"
+    },
+    {
+      "index": 601,
+      "id": "248",
+      "title": "gromacs-mmgbsa/main"
+    },
+    {
+      "index": 602,
+      "id": "676",
+      "title": "Somatic-Variant-Discovery-from-WES-Data-Using-Control-FREEC"
+    },
+    {
+      "index": 603,
+      "id": "624",
+      "title": "Analyses of shotgun metagenomics data with MetaPhlAn2"
+    },
+    {
+      "index": 604,
+      "id": "662",
+      "title": "Obis biodiversity indicator on Asian pacific"
+    },
+    {
+      "index": 605,
+      "id": "661",
+      "title": "Boulder fields indicators"
+    },
+    {
+      "index": 606,
+      "id": "660",
+      "title": "SPIPOLL MMOS GAPARS crowdsourcing results"
+    },
+    {
+      "index": 607,
+      "id": "659",
+      "title": "Animal dive prediction using deep learning"
+    },
+    {
+      "index": 608,
+      "id": "658",
+      "title": "Ecoregionalization on Antarctic sea"
+    },
+    {
+      "index": 609,
+      "id": "657",
+      "title": "Remote sensing Sentinel 2 data analysis to produce biodiversity metrics"
+    },
+    {
+      "index": 610,
+      "id": "656",
+      "title": "Biodiversity data exploration tutorial"
+    },
+    {
+      "index": 611,
+      "id": "655",
+      "title": "Obitools eDNA metabarcoding"
+    },
+    {
+      "index": 612,
+      "id": "653",
+      "title": "Workflow 7 : Beta Diversity [16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 613,
+      "id": "652",
+      "title": "Workflow 6: Alpha Diversity [16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 614,
+      "id": "651",
+      "title": "Workflow 5: OTU Clustering [16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 615,
+      "id": "650",
+      "title": "Workflow 3: Classification [Galaxy Training: 16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 616,
+      "id": "648",
+      "title": "Workflow 1: Further Quality Control [16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 617,
+      "id": "649",
+      "title": "Workflow 2: Data Cleaning And Chimera Removal [16S Microbial Analysis With Mothur]"
+    },
+    {
+      "index": 618,
+      "id": "608",
+      "title": "ERGA HiC Hap1Hap2 Scaffolding+QC YaHS v2309 (WF4)"
+    },
+    {
+      "index": 619,
+      "id": "629",
+      "title": "Cancer variant annotation (hg38 VEP-based) with MAF export"
+    },
+    {
+      "index": 620,
+      "id": "628",
+      "title": "Variant calling from matched tumor/normal sample pair (hg38 version)"
+    },
+    {
+      "index": 621,
+      "id": "615",
+      "title": "baredsc/baredSC-1d-logNorm"
+    },
+    {
+      "index": 622,
+      "id": "613",
+      "title": "openms-metaprosip/main"
+    },
+    {
+      "index": 623,
+      "id": "607",
+      "title": "Cancer variant annotation (hg38 VEP-based)"
+    },
+    {
+      "index": 624,
+      "id": "579",
+      "title": "average-bigwig-between-replicates/main"
+    },
+    {
+      "index": 625,
+      "id": "563",
+      "title": "polish-with-long-reads/main"
+    },
+    {
+      "index": 626,
+      "id": "137",
+      "title": "parallel-accession-download/main"
+    },
+    {
+      "index": 627,
+      "id": "561",
+      "title": "consensus-peaks/consensus-peaks-chip-sr"
+    },
+    {
+      "index": 628,
+      "id": "558",
+      "title": "Galaxy Protein Conformational Transitions calculations tutorial"
+    },
+    {
+      "index": 629,
+      "id": "557",
+      "title": "Galaxy Macromolecular Coarse-Grained Flexibility tutorial"
+    },
+    {
+      "index": 630,
+      "id": "519",
+      "title": "SARS-CoV-2 Illumina Amplicon pipeline - SANBI - v1.2"
+    },
+    {
+      "index": 631,
+      "id": "521",
+      "title": "SARS-CoV-2 ONT Amplicon Sequencing SANBI 1.0"
+    },
+    {
+      "index": 632,
+      "id": "520",
+      "title": "SARS-CoV-2 PostProcessing"
+    },
+    {
+      "index": 633,
+      "id": "41",
+      "title": "Nucleoli segmentation using CellProfiler (EOSC-Life D6)"
+    },
+    {
+      "index": 634,
+      "id": "482",
+      "title": "Genome-wide alternative splicing analysis v.2"
+    },
+    {
+      "index": 635,
+      "id": "490",
+      "title": "Galaxy Protein conformational ensembles generation"
+    },
+    {
+      "index": 636,
+      "id": "483",
+      "title": "StringTie workflow"
+    },
+    {
+      "index": 637,
+      "id": "472",
+      "title": "Genome-wide alternative splicing analysis"
+    },
+    {
+      "index": 638,
+      "id": "299",
+      "title": "Galaxy ABC MD Setup tutorial"
+    },
+    {
+      "index": 639,
+      "id": "298",
+      "title": "Galaxy Amber Protein Ligand Complex MD Setup tutorial"
+    },
+    {
+      "index": 640,
+      "id": "297",
+      "title": "Galaxy Amber Protein MD Setup tutorial"
+    },
+    {
+      "index": 641,
+      "id": "296",
+      "title": "Galaxy Protein-ligand Docking tutorial (Fpocket)"
+    },
+    {
+      "index": 642,
+      "id": "294",
+      "title": "Galaxy GMX Automatic Ligand Parameterization tutorial"
+    },
+    {
+      "index": 643,
+      "id": "277",
+      "title": "Galaxy Protein MD Setup tutorial"
+    },
+    {
+      "index": 644,
+      "id": "363",
+      "title": "Trio Analysis"
+    },
+    {
+      "index": 645,
+      "id": "246",
+      "title": "fragment-based-docking-scoring/main"
+    },
+    {
+      "index": 646,
+      "id": "103",
+      "title": "3: Plant virus exploration"
+    },
+    {
+      "index": 647,
+      "id": "102",
+      "title": "2: Plant virus confirmation"
+    },
+    {
+      "index": 648,
+      "id": "434",
+      "title": "extract SRA + viralRNAspades (PE)"
+    },
+    {
+      "index": 649,
+      "id": "395",
+      "title": "cutandrun/main"
+    },
+    {
+      "index": 650,
+      "id": "420",
+      "title": "hic-hicup-cooler/hic-fastq-to-cool-hicup-cooler"
+    },
+    {
+      "index": 651,
+      "id": "399",
+      "title": "atacseq/main"
+    },
+    {
+      "index": 652,
+      "id": "400",
+      "title": "rnaseq-sr/main"
+    },
+    {
+      "index": 653,
+      "id": "401",
+      "title": "rnaseq-pe/main"
+    },
+    {
+      "index": 654,
+      "id": "413",
+      "title": "Mothra"
+    },
+    {
+      "index": 655,
+      "id": "412",
+      "title": "RNAseq_UMG_SDumont_v1"
+    },
+    {
+      "index": 656,
+      "id": "406",
+      "title": "GTN Training - Antibiotic Resistance Detection"
+    },
+    {
+      "index": 657,
+      "id": "404",
+      "title": "GBIF data Quality check and filtering workflow Feb-2020"
+    },
+    {
+      "index": 658,
+      "id": "221",
+      "title": "PacBio HiFi genome assembly using hifiasm v2.1"
+    },
+    {
+      "index": 659,
+      "id": "237",
+      "title": "Purge duplicates from hifiasm assembly v1.0"
+    },
+    {
+      "index": 660,
+      "id": "220",
+      "title": "BAM to FASTQ + QC v1.0"
+    },
+    {
+      "index": 661,
+      "id": "380",
+      "title": "Air Quality Prediction Prototype"
+    },
+    {
+      "index": 662,
+      "id": "375",
+      "title": "HTR-Collections-test"
+    },
+    {
+      "index": 663,
+      "id": "374",
+      "title": "DLA-Collections-test"
+    },
+    {
+      "index": 664,
+      "id": "373",
+      "title": "De novo digitisation"
+    },
+    {
+      "index": 665,
+      "id": "366",
+      "title": "VGP-meryldb-creation/main"
+    },
+    {
+      "index": 666,
+      "id": "365",
+      "title": "VGP-meryldb-creation-trio/main"
+    },
+    {
+      "index": 667,
+      "id": "364",
+      "title": "Workflow for running the Community Earth System Model in fully coupled mode"
+    },
+    {
+      "index": 668,
+      "id": "359",
+      "title": "ML phylogenetic reconstruction"
+    },
+    {
+      "index": 669,
+      "id": "358",
+      "title": "preparing genomic data for phylogeny recostruction (GTN)"
+    },
+    {
+      "index": 670,
+      "id": "357",
+      "title": "generic-variant-calling-wgs-pe/main"
+    },
+    {
+      "index": 671,
+      "id": "356",
+      "title": "Generic consensus construction from VCF calls"
+    },
+    {
+      "index": 672,
+      "id": "354",
+      "title": "Generic variation analysis reporting"
+    },
+    {
+      "index": 673,
+      "id": "353",
+      "title": "Generic variation analysis on WGS PE data"
+    },
+    {
+      "index": 674,
+      "id": "352",
+      "title": "Partial ref-guided workflow - gstacks and pops"
+    },
+    {
+      "index": 675,
+      "id": "351",
+      "title": "Partial ref-guided workflow - bwa mem only"
+    },
+    {
+      "index": 676,
+      "id": "350",
+      "title": "Partial de novo workflow: c-s-g-pops only"
+    },
+    {
+      "index": 677,
+      "id": "349",
+      "title": "Partial de novo workflow: ustacks only"
+    },
+    {
+      "index": 678,
+      "id": "348",
+      "title": "Stacks RAD-seq de novo workflow"
+    },
+    {
+      "index": 679,
+      "id": "347",
+      "title": "Stacks RAD-seq reference-guided workflow"
+    },
+    {
+      "index": 680,
+      "id": "346",
+      "title": "QC of RADseq reads"
+    },
+    {
+      "index": 681,
+      "id": "338",
+      "title": "Biomarker screening in preeclampsia"
+    },
+    {
+      "index": 682,
+      "id": "325",
+      "title": "VGP HiFi phased assembly with hifiasm and HiC data"
+    },
+    {
+      "index": 683,
+      "id": "324",
+      "title": "VGP hybrid scaffolding with HiC data"
+    },
+    {
+      "index": 684,
+      "id": "322",
+      "title": "VGP hybrid scaffolding with Bionano optical maps"
+    },
+    {
+      "index": 685,
+      "id": "321",
+      "title": "VGP purge assembly with purge_dups pipeline"
+    },
+    {
+      "index": 686,
+      "id": "318",
+      "title": "VGP HiFi phased assembly with hifiasm and HiC data"
+    },
+    {
+      "index": 687,
+      "id": "309",
+      "title": "VGP genome profile analysis"
+    },
+    {
+      "index": 688,
+      "id": "295",
+      "title": "Galaxy Protein Ligand Complex MD Setup"
+    },
+    {
+      "index": 689,
+      "id": "274",
+      "title": "Galaxy workflow demonstrating the usage of EODIE Galaxy Tool"
+    },
+    {
+      "index": 690,
+      "id": "194",
+      "title": "Protein MD Setup tutorial using BioExcel Building Blocks (biobb) in Galaxy"
+    },
+    {
+      "index": 691,
+      "id": "252",
+      "title": "Pangeo 101 for everyone - introduction to Xarray"
+    },
+    {
+      "index": 692,
+      "id": "247",
+      "title": "protein-ligand-complex-parameterization/main"
+    },
+    {
+      "index": 693,
+      "id": "251",
+      "title": "Investigation of lockdown effect on air quality between January 2019 to May 2021."
+    },
+    {
+      "index": 694,
+      "id": "245",
+      "title": "De novo digitisation"
+    },
+    {
+      "index": 695,
+      "id": "230",
+      "title": "Combined workflows for large genome assembly"
+    },
+    {
+      "index": 696,
+      "id": "233",
+      "title": "16S_biodiversity_for_nonoverlap_paired_end"
+    },
+    {
+      "index": 697,
+      "id": "232",
+      "title": "16S_biodiversity_for_overlap_paired_end"
+    },
+    {
+      "index": 698,
+      "id": "229",
+      "title": "Assess genome quality"
+    },
+    {
+      "index": 699,
+      "id": "227",
+      "title": "Racon polish with long reads, x4"
+    },
+    {
+      "index": 700,
+      "id": "225",
+      "title": "Assembly with Flye"
+    },
+    {
+      "index": 701,
+      "id": "224",
+      "title": "Trim and filter reads - fastp"
+    },
+    {
+      "index": 702,
+      "id": "223",
+      "title": "kmer counting - meryl"
+    },
+    {
+      "index": 703,
+      "id": "222",
+      "title": "Data QC"
+    },
+    {
+      "index": 704,
+      "id": "228",
+      "title": "Racon polish with Illumina reads, x2"
+    },
+    {
+      "index": 705,
+      "id": "199",
+      "title": "lncRNA"
+    },
+    {
+      "index": 706,
+      "id": "193",
+      "title": "Workflow of BioTranslator Comparative Analysis"
+    },
+    {
+      "index": 707,
+      "id": "189",
+      "title": "BioTranslator Workflow"
+    },
+    {
+      "index": 708,
+      "id": "142",
+      "title": "16S_biodiversity_BIOM"
+    },
+    {
+      "index": 709,
+      "id": "124",
+      "title": "1: Plant virus detection with kraken2 (SE)"
+    },
+    {
+      "index": 710,
+      "id": "101",
+      "title": "1: Plant virus detection with kraken2 (PE)"
+    },
+    {
+      "index": 711,
+      "id": "123",
+      "title": "Compute daily and monthly mean from meteorological station measurements"
+    },
+    {
+      "index": 712,
+      "id": "117",
+      "title": "Workflow constructed from history 'test dwc from PNDB Data package EML DwC annotations'"
+    },
+    {
+      "index": 713,
+      "id": "115",
+      "title": "Object tracking using CellProfiler"
+    },
+    {
+      "index": 714,
+      "id": "100",
+      "title": "0: View complete virus identification"
+    },
+    {
+      "index": 715,
+      "id": "99",
+      "title": "COVID-19: read pre-processing"
+    },
+    {
+      "index": 716,
+      "id": "68",
+      "title": "MC_COVID19like_Assembly_Reads"
+    },
+    {
+      "index": 717,
+      "id": "67",
+      "title": "RNA-RNA interactome analysis using CLAN"
+    },
+    {
+      "index": 718,
+      "id": "66",
+      "title": "RNA-RNA interactome analysis using BWA-MEM"
+    },
+    {
+      "index": 719,
+      "id": "65",
+      "title": "CLM-FATES_ALP1_simulation_5years"
+    },
+    {
+      "index": 720,
+      "id": "53",
+      "title": "ONT -- Metagenomics-Kraken2-Krona"
+    },
+    {
+      "index": 721,
+      "id": "52",
+      "title": "ONT - Workflow-Wick-et.al."
+    },
+    {
+      "index": 722,
+      "id": "51",
+      "title": "ONT -- Assembly-Flye-AhrensLab"
+    },
+    {
+      "index": 723,
+      "id": "50",
+      "title": "ONT --Tutorial-Nanopolish-variants"
+    },
+    {
+      "index": 724,
+      "id": "49",
+      "title": "Population and community metrics calculation from Biodiversity data"
+    },
+    {
+      "index": 725,
+      "id": "46",
+      "title": "Copernicus Essential Climate Variable - select and plot"
+    },
+    {
+      "index": 726,
+      "id": "42",
+      "title": "Climate - Climate 101"
+    },
+    {
+      "index": 727,
+      "id": "37",
+      "title": "Assembly using Tophat2 and annotation (alternate)"
+    },
+    {
+      "index": 728,
+      "id": "38",
+      "title": "Unicycler assembly and annotation"
+    },
+    {
+      "index": 729,
+      "id": "39",
+      "title": "StringTie assembly and annotation"
+    },
+    {
+      "index": 730,
+      "id": "40",
+      "title": "Assembly using Tophat2 and annotation"
+    },
+    {
+      "index": 731,
+      "id": "36",
+      "title": "COVID-19: VARSCAN"
+    },
+    {
+      "index": 732,
+      "id": "35",
+      "title": "COVID-19: GATK4"
+    },
+    {
+      "index": 733,
+      "id": "25",
+      "title": "Pathway Ranker"
+    },
+    {
+      "index": 734,
+      "id": "24",
+      "title": "RetroSynthesis"
+    },
+    {
+      "index": 735,
+      "id": "23",
+      "title": "Genetic Design"
+    },
+    {
+      "index": 736,
+      "id": "22",
+      "title": "Pathway Analysis"
+    },
+    {
+      "index": 737,
+      "id": "18",
+      "title": "Cheminformatics - XChem combined"
+    },
+    {
+      "index": 738,
+      "id": "17",
+      "title": "Cheminformatics - Filter results"
+    },
+    {
+      "index": 739,
+      "id": "16",
+      "title": "Cheminformatics - TransFS scoring"
+    },
+    {
+      "index": 740,
+      "id": "15",
+      "title": "Cheminformatics - SuCOS scoring"
+    },
+    {
+      "index": 741,
+      "id": "14",
+      "title": "Cheminformatics - Docking"
+    },
+    {
+      "index": 742,
+      "id": "13",
+      "title": "Cheminformatics - Active site generation"
+    },
+    {
+      "index": 743,
+      "id": "12",
+      "title": "Cheminformatics - Enumerate ligands for docking"
+    },
+    {
+      "index": 744,
+      "id": "10",
+      "title": "Genomics - Recombination and selection analysis"
+    },
+    {
+      "index": 745,
+      "id": "9",
+      "title": "Genomics - Analysis of S-protein polymorphism"
+    },
+    {
+      "index": 746,
+      "id": "8",
+      "title": "Genomics - SE Variation"
+    },
+    {
+      "index": 747,
+      "id": "7",
+      "title": "Genomics - PE Variation"
+    },
+    {
+      "index": 748,
+      "id": "6",
+      "title": "Genomics - MRCA analysis"
+    },
+    {
+      "index": 749,
+      "id": "5",
+      "title": "Genomics - Assembly of the genome sequence"
+    },
+    {
+      "index": 750,
+      "id": "4",
+      "title": "Genomics - Read pre-processing without downloading from SRA"
+    },
+    {
+      "index": 751,
+      "id": "2",
+      "title": "Genomics - Read pre-processing"
+    },
+    {
+      "index": 752,
+      "id": "1703",
+      "title": "RNA Seq Counts To Genes"
+    }
+  ]
+}

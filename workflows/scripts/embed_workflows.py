@@ -247,11 +247,6 @@ def main():
     print(
         f"Loading workflows from {INPUT_FILE}"
     )
-    if index.ntotal != embeddings.shape[0]:
-        raise RuntimeError(
-            f"FAISS count mismatch: {index.ntotal} vectors vs "
-            f"{embeddings.shape[0]} embeddings"
-        )
 
     workflows = load_workflows(
         INPUT_FILE
@@ -340,6 +335,12 @@ def main():
     metadata = build_metadata(
         workflows
     )
+
+    if index.ntotal != len(metadata):
+        raise RuntimeError(
+            f"Index/metadata mismatch: {index.ntotal} vectors vs "
+            f"{len(metadata)} metadata records"
+        )
 
     metadata_record = {
         "model": MODEL_NAME,

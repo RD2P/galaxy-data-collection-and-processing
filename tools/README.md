@@ -153,6 +153,24 @@ An enriched output record has the shape:
 
 The original Galaxy tools data had empty strings in the description of 133 tools. For enrichment fields that cannot be supported by the source metadata, empty lists or strings are valid and should not be treated as errors; only malformed records, wrong types, or missing core metadata should fail validation.
 
+## Embedding Pipeline
+```
+Embedding dimension: 384
+Embedding shape:     (2340, 384)
+
+Saving FAISS index: data/tools.faiss
+Saving metadata: data/tools_embedding_metadata.jsonl
+
+============================================================
+Index build complete
+============================================================
+Vectors:       2340
+Dimension:     384
+Index:         data/tools.faiss
+Metadata:      data/tools_embedding_metadata.jsonl
+============================================================
+```
+
 ## Current snapshot stats
 
 From the latest collected catalog summary:

@@ -1,15 +1,16 @@
 # Galaxy Tools Data Collection
 
-This directory contains the Galaxy tool collection and enrichment pipeline used for SciComposer data preparation.
+This directory contains the Galaxy tool collection, enrichment, and embedding pipeline used by SciComposer.
 
 ## Current status
 
-The repository has progressed past raw collection and into a preprocessing + enrichment workflow:
+The project has moved beyond raw collection and into a full semantic retrieval pipeline:
 
-- raw tool metadata is collected from the Galaxy API
-- the raw records are normalized for model-friendly ingestion
-- the preprocessed dataset is enriched with LLM-generated scientific metadata
-- the enrichment script now resolves paths robustly so it can run from multiple working directories without breaking
+- Raw Galaxy tool metadata is fetched from the UseGalaxy API.
+- Records are cleaned and reduced into a model-friendly form.
+- The preprocessed tool set is enriched with scientific metadata via an LLM.
+- Enriched records are validated and embedded into a FAISS index for retrieval.
+- The pipeline is designed to tolerate partial metadata gaps while preserving the quality of structured retrieval data.
 
 ## Source API
 
@@ -20,73 +21,29 @@ Primary endpoint:
 - https://usegalaxy.org/api/tools/{tool_id}
 
 Common query parameters:
-- `io_details=true`: include tool inputs/outputs and parameter details
-- `link_details=true`: include links for tool resources
-- `tool_version=<version>`: request a specific version when available
+- `io_details=true`: include tool inputs/outputs and parameter details.
+- `link_details=true`: include links for tool resources.
+- `tool_version=<version>`: request a specific tool version when available.
 
 Related endpoint:
-- `/tools/<tool_id>/input`: tool input schema/details route
+- `/tools/<tool_id>/input`: tool input schema/details route.
 
 ## Directory contents
 
-- `collect_galaxy_tools_with_detail.py`: fetches tool metadata from the Galaxy API and writes JSONL records
-- `convert_jsonl_to_json.py`: converts raw JSONL to a JSON array export
-- `generate_tool_summary.py`: summarizes the catalog structure and counts
-- `tool_summary.json`: compact summary of the Galaxy tool catalog
-- `tools_with_detail.jsonl`: raw collected tool records
-- `tools_with_detail.json`: export generated from the JSONL stream
-- `enrichment_pipeline/`: preprocessing and enrichment workflow for scientific metadata generation
+- `collection_scripts/collect_galaxy_tools_with_detail.py`: fetches tool metadata from the Galaxy API and writes JSONL records.
+- `collection_scripts/convert_jsonl_to_json.py`: converts raw JSONL to a JSON array export.
+- `collection_scripts/generate_tool_summary.py`: summarizes the catalog structure and counts.
+- `tool_summary.json`: compact summary of the Galaxy tool catalog.
+- `tools_with_detail.jsonl`: raw collected tool records.
+- `tools_with_detail.json`: export generated from the JSONL stream.
+- `enrichment_pipeline/`: preprocessing, enrichment, validation, and metrics for scientific metadata generation.
+- `embedding_pipeline/`: conversion to embedding documents and FAISS index creation.
 
-## Enrichment pipeline
+## Collection pipeline
 
-The enrichment pipeline lives under `enrichment_pipeline/` and is the current downstream stage for tool metadata preparation.
+The collection step downloads metadata for each Galaxy tool from the public UseGalaxy API and stores the result as JSONL, which makes the pipeline easy to resume and inspect.
 
-### Files
-
-- `enrichment.py`: runs the LLM enrichment loop against preprocessed tools
-- `preprocess_raw_tool_details.py`: simplifies and strips excess Galaxy metadata to a model-friendly representation
-- `prompt.md`: the system prompt used for enrichment
-- `data/`: runtime input and output data files
-- `.venv/`: local Python environment used for this workflow
-
-### Data flow
-
-1. Raw tool metadata is collected into `tools_with_detail.jsonl`.
-2. The preprocessor compresses and filters noisy metadata into `enrichment_pipeline/data/tools_preprocessed.jsonl`.
-3. `enrichment.py` loads that file, calls Ollama with the configured model, and writes enriched records to `enrichment_pipeline/data/tools_enriched.jsonl`.
-4. Per-tool timing and token metrics are logged to `tools_enrichment_metrics.jsonl`.
-5. Failed records are captured in `tools_enrichment_errors.jsonl`.
-
-## Running the enrichment job
-
-From the repo root:
-
-```bash
-cd tools/enrichment_pipeline
-python3 enrichment.py
-```
-
-The script now resolves paths relative to the pipeline directory, so it is not dependent on the shell working directory.
-
-## Ollama setup for local enrichment
-
-This project expects Ollama to be reachable at `http://localhost:4378`.
-
-That port is forwarded locally via SSH, following the lab setup for the current environment:
-
-```bash
-ssh -L 4378:localhost:4378 <user>@<host>
-```
-
-The runtime setting used by the current script is:
-
-```python
-OLLAMA_HOST = "http://localhost:4378"
-```
-
-## Output record shape
-
-A raw collected record:
+Example raw record shape:
 
 ```json
 {
@@ -95,7 +52,74 @@ A raw collected record:
 }
 ```
 
-A preprocessed record is a reduced, cleaner representation intended for model use.
+This is the source-of-truth artifact for downstream processing.
+
+## Preprocessing pipeline
+
+The preprocessing script at `enrichment_pipeline/scripts/preprocess_raw_tool_details.py` reduces each raw Galaxy record into a compact semantic object that is more useful for scientific enrichment and retrieval.
+
+It keeps only information that matters for downstream modeling:
+
+- tool identity: `tool_id`, `name`, `version`
+- description and help text with bounded truncation
+- ontology metadata such as `edam_operations` and `edam_topics`
+- external references and citations
+- flattened semantic inputs and outputs
+- software requirements
+
+The script intentionally drops heavy execution details and UI configuration that are not useful for conceptual tool matching.
+
+Output:
+- `enrichment_pipeline/data/tools_preprocessed.jsonl`
+
+## Enrichment pipeline
+
+The enrichment pipeline lives under `enrichment_pipeline/` and is the current downstream stage for tool metadata preparation.
+
+### Files
+
+- `scripts/enrichment.py`: runs the LLM enrichment loop against preprocessed tools.
+- `scripts/preprocess_raw_tool_details.py`: simplifies and strips excess Galaxy metadata to a model-friendly representation.
+- `scripts/validate_enriched_tools.py`: checks the enriched JSONL for schema problems and duplicate IDs.
+- `prompt.md`: system prompt used for enrichment.
+- `data/`: runtime input and output data files.
+- `metrics_and_errors/`: per-tool metrics and failed-record capture.
+
+### Runtime settings
+
+The enrichment job uses:
+
+```python
+MODEL = "qwen3.5:9b"
+OLLAMA_HOST = "http://localhost:4378"
+```
+
+This expects Ollama to be reachable locally, typically via port forwarding such as:
+
+```bash
+ssh -L 4378:localhost:4378 <user>@<host>
+```
+
+### Data flow
+
+1. Raw tool metadata is collected into `tools_with_detail.jsonl`.
+2. The preprocessor compresses and filters noisy metadata into `enrichment_pipeline/data/tools_preprocessed.jsonl`.
+3. `scripts/enrichment.py` loads that file, sends each record to Ollama, and writes enriched results to `enrichment_pipeline/data/tools_enriched.jsonl`.
+4. Per-tool timing and token metrics are appended to `metrics_and_errors/tools_enrichment_metrics.jsonl`.
+5. Failed records are captured in `metrics_and_errors/tools_enrichment_errors.jsonl`.
+
+### Command to run
+
+From the project root:
+
+```bash
+cd tools/enrichment_pipeline
+python3 scripts/enrichment.py
+```
+
+The script resolves paths relative to the pipeline directory so it works regardless of the shell working directory.
+
+### Enriched record shape
 
 An enriched output record has the shape:
 
@@ -103,6 +127,7 @@ An enriched output record has the shape:
 {
   "tool_id": "...",
   "name": "...",
+  "version": "...",
   "description": "...",
   "enrichment": {
     "purpose": "...",
@@ -119,42 +144,73 @@ An enriched output record has the shape:
 }
 ```
 
-## Enrichment run summary
-  ```
-  Summary
-    avg total duration: 6.39s
-    avg prompt throughput: 3764.63 tok/s
-    avg output throughput: 94.24 tok/s
+### Enrichment run summary
 
-  Finished
-  Processed: 2329
-  Failed: 8
-  ```
+```text
+Summary
+  avg total duration: 6.39s
+  avg prompt throughput: 3764.63 tok/s
+  avg output throughput: 94.24 tok/s
 
-## Enrichment validation summary
+Finished
+Processed: 2329
+Failed: 8
+```
 
-  ```
-  ============================================================
-  Galaxy Tool Enrichment Validation
-  ============================================================
-  Input file:       data/tools_enriched.jsonl
-  Total records:    2340
-  Valid records:    2198
-  Invalid records:  142
-  Parse errors:     0
-  Unique IDs:       2340
-  Duplicate IDs:    0
+### Validation summary
 
-  Error summary:
-      133  missing field: description
-        7  empty field: enrichment.input_concepts
-        2  empty field: enrichment.scientific_domains
-  ```
+```text
+============================================================
+Galaxy Tool Enrichment Validation
+============================================================
+Input file:       data/tools_enriched.jsonl
+Total records:    2340
+Valid records:    2198
+Invalid records:  142
+Parse errors:     0
+Unique IDs:       2340
+Duplicate IDs:    0
+
+Error summary:
+    133  missing field: description
+      7  empty field: enrichment.input_concepts
+      2  empty field: enrichment.scientific_domains
+```
 
 The original Galaxy tools data had empty strings in the description of 133 tools. For enrichment fields that cannot be supported by the source metadata, empty lists or strings are valid and should not be treated as errors; only malformed records, wrong types, or missing core metadata should fail validation.
 
-## Embedding Pipeline
-```
+## Embedding pipeline
+
+The embedding pipeline converts enriched tool records into semantic documents and then indexes them with FAISS.
+
+### Document generation
+
+`embedding_pipeline/generate_embedding_documents.py` reads `enrichment_pipeline/data/tools_enriched.jsonl` and creates a compact document for each tool:
+
+- tool name and version
+- purpose
+- scientific domains
+- operations
+- input/output concepts
+- workflow roles
+- use cases
+- keywords and synonyms
+- enriched description
+
+The output is:
+- `embedding_pipeline/data/tools_embedding_documents.jsonl`
+
+### FAISS indexing
+
+`embedding_pipeline/build_faiss_index.py` loads `sentence-transformers/all-MiniLM-L6-v2`, encodes each document, normalizes the embeddings, and builds an `IndexFlatIP` FAISS index. Because the vectors are normalized, the inner product is equivalent to cosine similarity.
+
+Output files:
+- `embedding_pipeline/data/tools.faiss`
+- `embedding_pipeline/data/tools_embedding_metadata.jsonl`
+
+Latest run summary:
+
+```text
 Embedding dimension: 384
 Embedding shape:     (2340, 384)
 
@@ -184,80 +240,24 @@ From the latest collected catalog summary:
 
 - JSONL records are the main archival format and are intended for incremental processing and safe resume behavior.
 - The enrichment pipeline is designed to keep processing even if a single tool fails, while recording errors for later inspection.
-- The script now creates the data directory automatically and writes output files using robust, script-relative paths.
-- The raw collection files remain the source of truth; derived files should be treated as generated artifacts.
+- The scripts create the necessary data directories automatically and resolve file paths relative to the script location.
+- Raw collection files remain the source of truth; derived files should be treated as generated artifacts.
+- The resulting tool FAISS index is intended for semantic retrieval over enriched scientific metadata rather than raw API payloads.
 
-## Tool IDs
-toolshed.g2.bx.psu.edu/repos/artbio/concatenate_multiple_datasets/cat_multi_datasets/1.4.3
-toolshed.g2.bx.psu.edu/repos/bgruening/diff/diff/3.10+galaxy1
-toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/nl/9.5+galaxy3
-toolshed.g2.bx.psu.edu/repos/bgruening/unique/bg_uniq/0.3
-toolshed.g2.bx.psu.edu/repos/peterjc/sample_seqs/sample_seqs/0.2.6
-toolshed.g2.bx.psu.edu/repos/iuc/bigwig_outlier_bed/bigwig_outlier_bed/0.2.5+galaxy0
-Filter1
-Grep1
-Extract_features1
-gff_filter_by_attribute
-gff_filter_by_feature_count
-gtf_filter_by_attribute_values_list
-toolshed.g2.bx.psu.edu/repos/devteam/subtract_query/subtract_query1/0.1
-join1
-comp1
-Grouping1
-toolshed.g2.bx.psu.edu/repos/iuc/datamash_reverse/datamash_reverse/1.9+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/datamash_transpose/datamash_transpose/1.9+galaxy1
-toolshed.g2.bx.psu.edu/repos/iuc/datamash_ops/datamash_ops/1.9+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/tabular_to_fasta/tab2fasta/1.1.0
-toolshed.g2.bx.psu.edu/repos/devteam/short_reads_trim_seq/trim_reads/1.0.0
-toolshed.g2.bx.psu.edu/repos/devteam/fasta_to_tabular/fasta2tab/1.1.0
-toolshed.g2.bx.psu.edu/repos/devteam/fasta_concatenate_by_species/fasta_concatenate0/0.0.1
-toolshed.g2.bx.psu.edu/repos/devteam/fasta_compute_length/fasta_compute_length/1.0.4
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_converter/cshl_fastq_quality_converter/1.0.1+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_quality_filter/cshl_fastq_quality_filter/1.0.2+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_artifacts_filter/cshl_fastx_artifacts_filter/1.0.1+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_barcode_splitter/cshl_fastx_barcode_splitter/1.0.1+galaxy2
-toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/1.3.6+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_clipper/cshl_fastx_clipper/1.0.3+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_filter/fastq_filter/1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fasta_formatter/cshl_fasta_formatter/1.0.1+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_renamer/cshl_fastx_renamer/0.0.14+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_reverse_complement/cshl_fastx_reverse_complement/1.0.2+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_trimmer/cshl_fastx_trimmer/1.0.2+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_trimmer/fastq_trimmer/1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_combiner/fastq_combiner/1.1.5+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_masker_by_quality/fastq_masker_by_quality/1.1.5+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_joiner/fastq_paired_end_joiner/2.0.1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_splitter/fastq_paired_end_splitter/1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_trimmer_by_quality/fastq_quality_trimmer/1.1.5
-toolshed.g2.bx.psu.edu/repos/devteam/fasta_nucleotide_changer/cshl_fasta_nucleotides_changer/1.0.2+galaxy2
-toolshed.g2.bx.psu.edu/repos/devteam/fastx_collapser/cshl_fastx_collapser/1.0.1+galaxy2
-toolshed.g2.bx.psu.edu/repos/iuc/umi_tools_extract/umi_tools_extract/1.1.6+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/filtlong/filtlong/0.3.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/fasta_stats/fasta-stats/2.0
-toolshed.g2.bx.psu.edu/repos/lparsons/cutadapt/cutadapt/5.2+galaxy2
-toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.9
-toolshed.g2.bx.psu.edu/repos/galaxyp/fasta_merge_files_and_filter_unique_sequences/fasta_merge_files_and_filter_unique_sequences/1.2.0
-toolshed.g2.bx.psu.edu/repos/galaxyp/filter_by_fasta_ids/filter_by_fasta_ids/2.3
-toolshed.g2.bx.psu.edu/repos/rnateam/splitfasta/rbc_splitfasta/0.5.2
-toolshed.g2.bx.psu.edu/repos/iuc/pear/iuc_pear/0.9.6.4
-toolshed.g2.bx.psu.edu/repos/iuc/ucsc_fasplit/fasplit/482
-toolshed.g2.bx.psu.edu/repos/iuc/umi_tools_count/umi_tools_count/1.1.6+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/umi_tools_whitelist/umi_tools_whitelist/1.1.6+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/umi_tools_dedup/umi_tools_dedup/1.1.6+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/umi_tools_group/umi_tools_group/1.1.6+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_interlacer/fastq_paired_end_interlacer/1.2.0.1+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_paired_end_deinterlacer/fastq_paired_end_deinterlacer/1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fastq_manipulation/fastq_manipulation/1.2+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/sickle/sickle/1.33.3
-toolshed.g2.bx.psu.edu/repos/bgruening/trim_galore/trim_galore/0.6.10+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/seqkit_split2/seqkit_split2/2.13.0+galaxy1
-toolshed.g2.bx.psu.edu/repos/iuc/seqkit_grep/seqkit_grep/2.13.0+galaxy0
-toolshed.g2.bx.psu.edu/repos/iuc/seqkit_translate/seqkit_translate/2.13.0+galaxy0
-toolshed.g2.bx.psu.edu/repos/devteam/fasta_filter_by_length/fasta_filter_by_length/1.2
-toolshed.g2.bx.psu.edu/repos/iuc/flash/flash/1.2.11.4
-toolshed.g2.bx.psu.edu/repos/bgruening/find_subsequences/bg_find_subsequences/0.2
-toolshed.g2.bx.psu.edu/repos/iuc/length_and_gc_content/length_and_gc_content/0.1.2
+## Tool ID examples
+
+The pipeline has been tested across a wide range of Galaxy tool identifiers, including examples such as:
+
+- `toolshed.g2.bx.psu.edu/repos/artbio/concatenate_multiple_datasets/cat_multi_datasets/1.4.3`
+- `toolshed.g2.bx.psu.edu/repos/iuc/fastp/fastp/1.3.6+galaxy0`
+- `toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.74+galaxy1`
+- `Filter1`
+- `Grep1`
+- `join1`
+- `comp1`
+- `Grouping1`
+
+This demonstrates the pipeline supports both ToolShed-qualified tool IDs and legacy Galaxy-style short IDs.
 toolshed.g2.bx.psu.edu/repos/lparsons/fastq_join/fastq_join/1.1.2-806.1
 toolshed.g2.bx.psu.edu/repos/mbernt/fasta_regex_finder/fasta_regex_finder/0.1.0
 toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.74+galaxy1
